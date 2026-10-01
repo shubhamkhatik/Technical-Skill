@@ -1,8 +1,5 @@
 # React JS
 
-# React.js
-
----
 
 ## Core Concepts
 

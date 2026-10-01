@@ -2,9 +2,9 @@
 
 # Frontend Development
 
-[React JS](Frontend/React%20JS%20325bc1534cbb80279bdfdd15cc0b4302.md)
+[React JS](./React%20JS.md)
 
-[Next JS](Frontend/Next%20JS%20325bc1534cbb807ea2f1cde36d1b31ee.md)
+[Next JS](./Next%20JS.md)
 
 ## Core Technologies
 

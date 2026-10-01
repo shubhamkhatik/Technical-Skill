@@ -1,6 +1,6 @@
 # Next JS
 
-[UI System Design in Next JS](Next%20JS/UI%20System%20Design%20in%20Next%20JS%20325bc1534cbb8016b26cc2bad7df7f61.md)
+[UI System Design in Next JS](./UI%20System%20Design%20in%20Next%20JS.md)
 
 # Next.js
 
