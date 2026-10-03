@@ -1,6 +1,6 @@
 # Node.js + Express.js
 
-# Node.js + Express.js
+
 
 > **Mental Model:** Node.js is the runtime — it gives JavaScript access to the OS (files, network, processes). Express.js is a thin layer on top that adds routing and middleware. Everything else — architecture, validation, auth, error handling, security — is your responsibility to build correctly. This freedom is Express's biggest strength and biggest trap.
 > 

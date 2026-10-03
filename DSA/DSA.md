@@ -101,7 +101,7 @@ Advanced String Matching (KMP / Rabin-Karp) [Algorithm]
 
 Dynamic Programming [Pattern]
 
---------------------------------------------------------------------
+-----------------------------------------------------------
 
 # Old version
 

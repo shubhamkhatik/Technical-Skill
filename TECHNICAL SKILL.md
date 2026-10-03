@@ -1,4 +1,4 @@
-# TECHNICAL SKILL [draft]
+# TECHNICAL SKILL
 
 [DSA](./DSA/DSA.md)
 
