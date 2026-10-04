@@ -57,3 +57,8 @@ Trigger this skill whenever the user says:
 ### 5. Append
 - Upon user confirmation, append rows into the target table before section breaks (`---` or next `##`).
 - If the content was processed from `inbox.md`, reset `inbox.md` to its original empty dropzone template.
+
+### 6. Format & Coverage Sync
+- Run `python scripts/prettify_tables.py <target_file>` to ensure vertical column pipe alignment.
+- Run `python scripts/sync_interview_coverage.py` to refresh [INTERVIEW_COVERAGE.md](file:///g:/study/Doc-Update/Technical%20Skill/INTERVIEW_COVERAGE.md) and update readiness against [`Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire).
+

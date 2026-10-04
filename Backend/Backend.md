@@ -1,11 +1,9 @@
-# Backend
+# Backend Development
 
 [Node JS + Express JS](./Nodejs+Express.md)
 
-# Backend Development
-
-> **Mental Model:** Backend is about three responsibilities: (1) **receiving and validating** requests, (2) **executing business logic** against data, (3) **returning structured responses** reliably, securely, and at scale. Every backend decision is a tradeoff between consistency, availability, performance, and developer ergonomics.
-> 
+> **Mental Model:** Backend is about three responsibilities: (1) **receiving and validating** requests, (2) **executing business logic** against data, (3) **returning structured responses** reliably, securely, and at scale. Every backend decision is a tradeoff between consistency, availability, performance, and developer ergonomics.  
+> 🎯 **Interview Practice:** Test your backend fundamentals, APIs, databases, and auth with real questions in [Interview-Inspire: Backend Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/backend/backend.md)
 
 ---
 

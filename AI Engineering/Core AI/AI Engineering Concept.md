@@ -1,6 +1,7 @@
 # AI Engineering Concepts
 
-> **Mental Model:** AI Engineering bridges raw foundation models and scalable production systems. It focuses on: (1) **Representation & Search** (embeddings, quantization, ANN indexing), (2) **Grounded Generation** (RAG, structured constraints, guardrails), and (3) **Inference Efficiency** (KV caching, PagedAttention, FlashAttention, quantization, speculative decoding).
+> **Mental Model:** AI Engineering bridges raw foundation models and scalable production systems. It focuses on: (1) **Representation & Search** (embeddings, quantization, ANN indexing), (2) **Grounded Generation** (RAG, structured constraints, guardrails), and (3) **Inference Efficiency** (KV caching, PagedAttention, FlashAttention, quantization, speculative decoding).  
+> 🎯 **Interview Practice:** Test your vector search, embeddings, and attention foundations in [Interview-Inspire: AI Foundations Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/ai-engineering/foundations/foundations.md)
 
 ---
 

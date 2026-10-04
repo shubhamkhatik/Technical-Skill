@@ -112,3 +112,24 @@ Uses the **5-column Command-Oriented schema**:
 - Upon approval, append cleanly to the exact table in the target markdown file without corrupting markdown table syntax or surrounding headings.
 - If input was read from `inbox.md`, reset `inbox.md` to its original clean template.
 - Optional: run `python scripts/prettify_tables.py <file>` to ensure all vertical column pipes remain aligned.
+
+---
+
+## 6. Interview-Inspire Cross-Linking & Sync System
+
+Technical-Skill seamlessly cross-references the [`shubhamkhatik/Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire) repository via a dual system:
+
+1. **Option 1: In-Context Interview Badges (Clean Links)**:
+   - Every major domain file and section contains a non-intrusive header callout linking directly to the corresponding Interview-Inspire question bank:
+     ```markdown
+     > 🎯 **Interview Practice:** Test your knowledge in [Interview-Inspire: Frontend Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/frontend/frontend.md)
+     ```
+   - `TECHNICAL SKILL.md` contains an **Interview Practice Bank** column across all 8 domains.
+2. **Option 2: Automated Coverage Synchronization**:
+   - `scripts/sync_interview_coverage.py` automatically synchronizes with Interview-Inspire's remote raw files.
+   - Computes live domain-by-domain coverage %, extracts gaps into an actionable checklist, and outputs `INTERVIEW_COVERAGE.md`.
+   - Run via:
+     ```bash
+     python scripts/sync_interview_coverage.py
+     ```
+

@@ -1,9 +1,7 @@
 # Frontend System Design
 
-# Frontend System Design
-
-> **Reference repo:** [namastedev/namaste-frontend-system-design](https://github.com/namastedev/namaste-frontend-system-design)
-> 
+> **Reference repo:** [namastedev/namaste-frontend-system-design](https://github.com/namastedev/namaste-frontend-system-design)  
+> 🎯 **Interview Practice:** Test your frontend architecture & networking knowledge with real interview questions in [Interview-Inspire: Frontend Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/frontend/frontend.md)
 
 ---
 

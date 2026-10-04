@@ -1,6 +1,8 @@
-# DSA
+# Data Structures & Algorithms (DSA) Patterns
 
-# new version
+> 🎯 **Interview Practice:** Practice curated DSA questions and algorithm problems in [Interview-Inspire: DSA Problem Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/dsa-problem-solving/dsa.md)
+
+---
 
 Phase 1: Primitives & State (The Building Blocks)
 Time & Space Complexity (Big-O) [Core Concept]

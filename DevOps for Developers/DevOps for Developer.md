@@ -1,9 +1,7 @@
-# DevOps for Developer
-
 # DevOps for Developers — 01. Linux & Terminal
 
-> **Mental Model:** As a developer you don't need to be a Linux sysadmin. You need to be comfortable enough to: SSH into a server, read logs, debug a running process, manage files, and not accidentally break things. Every cloud server, Docker container, and CI runner is Linux.
-> 
+> **Mental Model:** As a developer you don't need to be a Linux sysadmin. You need to be comfortable enough to: SSH into a server, read logs, debug a running process, manage files, and not accidentally break things. Every cloud server, Docker container, and CI runner is Linux.  
+> 🎯 **Interview Practice:** Test your Linux, Docker, K8s, Git, and CI/CD mastery with real questions in [Interview-Inspire: DevOps Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/devops/devops.md)
 
 | Skill | Core Concepts & Mental Model | Key Commands & Techniques | Tradeoffs & Failure Modes | Resources |
 | --- | --- | --- | --- | --- |

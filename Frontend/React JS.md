@@ -1,5 +1,8 @@
 # React JS
 
+> 🎯 **Interview Practice:** Test your React 18 hooks, rendering cycle, state management, and modern component design in [Interview-Inspire: React Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/frontend/frontend.md)
+
+---
 
 ## Core Concepts
 

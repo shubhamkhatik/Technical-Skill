@@ -1,10 +1,10 @@
-# Frontend
-
 # Frontend Development
 
-[React JS](./React%20JS.md)
+[React JS](./React%20JS.md) · [Next JS](./Next%20JS.md)
 
-[Next JS](./Next%20JS.md)
+> 🎯 **Interview Practice:** Test your core HTML, CSS, JavaScript, TypeScript, and Web APIs knowledge in [Interview-Inspire: Frontend Practice Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/software-engineering/frontend/frontend.md)
+
+---
 
 ## Core Technologies
 
