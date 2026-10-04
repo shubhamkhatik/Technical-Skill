@@ -20,8 +20,8 @@
 
 ## Operations Comparison Matrix
 
-| Pillar | Primary Purpose | Core Tools & Frameworks | Key Metrics |
-| :--- | :--- | :--- | :--- |
-| **Evaluations** | Measure quality & prevent regressions | `Ragas`, `DeepEval`, `Promptfoo`, `TruLens` | Faithfulness, Answer Relevance, Context Recall |
-| **Observability** | Live telemetry, debugging & cost tracking | `Langfuse`, `Arize Phoenix`, `OpenLLMetry` | Latency (P95/P99), Total Cost ($), Error Rate |
-| **Guardrails** | Security, compliance & safety enforcement | `NeMo Guardrails`, `Llama Guard`, `Presidio` | Attack Block Rate, PII Leaks, False Positive Rate |
+| Pillar            | Primary Purpose                           | Core Tools & Frameworks                      | Key Metrics                                       |
+| :---------------- | :---------------------------------------- | :------------------------------------------- | :------------------------------------------------ |
+| **Evaluations**   | Measure quality & prevent regressions     | `Ragas`, `DeepEval`, `Promptfoo`, `TruLens`  | Faithfulness, Answer Relevance, Context Recall    |
+| **Observability** | Live telemetry, debugging & cost tracking | `Langfuse`, `Arize Phoenix`, `OpenLLMetry`   | Latency (P95/P99), Total Cost ($), Error Rate     |
+| **Guardrails**    | Security, compliance & safety enforcement | `NeMo Guardrails`, `Llama Guard`, `Presidio` | Attack Block Rate, PII Leaks, False Positive Rate |

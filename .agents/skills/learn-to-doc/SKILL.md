@@ -30,7 +30,11 @@ Trigger this skill whenever the user says:
 ### 2. Mandatory Grounding & Deduplication (Read First)
 - **Inspect Target File**: Open and read the target section using `view_file`.
 - **Learn from Existing Rows**: Check the exact column headers, formatting conventions, depth, and tone. Use existing rows as the direct few-shot template.
-- **Deduplicate**: Check if the concept or synonyms already exist. If found, do not duplicate; propose an enrichment diff instead.
+- **Audit & Enrichment Diff Mode**:
+  - Check if the concept or synonyms already exist.
+  - If already present, **do not duplicate**. Compare current content vs new learning.
+  - If new tools, techniques, or failure modes are found, present an **Enrichment Diff** (`+ Added`) and merged row preview.
+  - Update the existing row **in-place** upon user approval.
 
 ### 3. Clean & Analyze Notes
 - Strip colloquial speech, timestamps, filler, and unverified data.

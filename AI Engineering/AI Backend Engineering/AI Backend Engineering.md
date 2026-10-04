@@ -26,8 +26,8 @@
 
 ## Pillar Comparison Matrix
 
-| Layer | Primary Focus | Core Tools & Frameworks | Primary Metrics |
-| :--- | :--- | :--- | :--- |
-| **RAG & Search** | Data grounding & context assembly | `pgvector`, `Qdrant`, `Cohere Rerank`, `LlamaIndex` | Recall@K, Precision@K, Context Relevance |
-| **Agentic Loops** | Multi-step reasoning & tool execution | `LangGraph`, `MCP SDK`, `Pydantic`, `CrewAI` | Task Completion Rate, Step Count, Error Recovery |
-| **Serving & Gateway** | Infrastructure, routing & latency | `vLLM`, `LiteLLM`, `Redis`, `Portkey` | Tokens/sec, TTFT (Time to First Token), Cost ($/req) |
+| Layer                 | Primary Focus                         | Core Tools & Frameworks                             | Primary Metrics                                      |
+| :-------------------- | :------------------------------------ | :-------------------------------------------------- | :--------------------------------------------------- |
+| **RAG & Search**      | Data grounding & context assembly     | `pgvector`, `Qdrant`, `Cohere Rerank`, `LlamaIndex` | Recall@K, Precision@K, Context Relevance             |
+| **Agentic Loops**     | Multi-step reasoning & tool execution | `LangGraph`, `MCP SDK`, `Pydantic`, `CrewAI`        | Task Completion Rate, Step Count, Error Recovery     |
+| **Serving & Gateway** | Infrastructure, routing & latency     | `vLLM`, `LiteLLM`, `Redis`, `Portkey`               | Tokens/sec, TTFT (Time to First Token), Cost ($/req) |

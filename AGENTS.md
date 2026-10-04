@@ -12,17 +12,17 @@ Whenever the user inputs a **topic name** (e.g., `communication pattern in front
 ### Step 1: Domain & Target File Resolution
 Automatically detect the appropriate file and section based on topic keywords (even if domain is not explicitly mentioned):
 
-| Domain / Topics | Target File | Established Table Schema |
-| :--- | :--- | :--- |
-| **Frontend System Design** (Communication patterns, rendering, performance, security, caching, microfrontends) | `Frontend System Design/Frontend System Design.md` | `\| Topic \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **Backend Engineering** (Node/Express, Fastify, APIs, SQL, NoSQL, Redis, Queues, Auth) | `Backend/Backend.md` | `\| Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **DevOps & Cloud** (Linux, Git, Docker, Kubernetes, CI/CD, Nginx, Terraform, SRE) | `DevOps for Developers/DevOps for Developer.md` | `\| Skill \| Core Concepts & Mental Model \| Key Commands & Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **Frontend Core** (HTML, CSS, JS, TS, React, Next.js, Redux, Zustand) | `Frontend/Frontend.md`, `Frontend/React JS.md`, or `Frontend/Next JS.md` | `\| Skill \| Core Concepts \| Tools & Libraries \| Key Techniques \| Resources \|` |
-| **Backend System Design** (HLD, sharding, distributed systems, consensus) | `Backend System Design/` | Match existing guide structure / tables |
-| **AI Engineering — Core Foundations** (Embeddings, ANN, Attention, Compression) | `AI Engineering/Core AI/AI Engineering Concept.md` | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **AI Engineering — Backend & Runtime** (RAG, Vector DBs, Agents, MCP, Serving, Gateways) | `AI Engineering/AI Backend Engineering/` (`RAG & Vector Architecture.md`, `Agentic AI & Orchestration.md`, `LLM Serving & Gateways.md`) | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **AI Engineering — LLMOps & Quality** (Evals, Ragas, Tracing, Guardrails) | `AI Engineering/LLMsOps/` (`LLM Evals & Benchmarks.md`, `Observability & Guardrails.md`) | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
-| **AI Engineering — Frontend & System Design** (Generative UI, Vercel AI SDK, GEO/AEO) | `AI Engineering/AI Frontend Engineering/` or `AI System Design/` | Match existing guide structure / tables |
+| Domain / Topics                                                                                                | Target File                                                                                                                             | Established Table Schema                                                                                                               |
+| :------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend System Design** (Communication patterns, rendering, performance, security, caching, microfrontends) | `Frontend System Design/Frontend System Design.md`                                                                                      | `\| Topic \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|`         |
+| **Backend Engineering** (Node/Express, Fastify, APIs, SQL, NoSQL, Redis, Queues, Auth)                         | `Backend/Backend.md`                                                                                                                    | `\| Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|`         |
+| **DevOps & Cloud** (Linux, Git, Docker, Kubernetes, CI/CD, Nginx, Terraform, SRE)                              | `DevOps for Developers/DevOps for Developer.md`                                                                                         | `\| Skill \| Core Concepts & Mental Model \| Key Commands & Techniques \| Tradeoffs & Failure Modes \| Resources \|`                   |
+| **Frontend Core** (HTML, CSS, JS, TS, React, Next.js, Redux, Zustand)                                          | `Frontend/Frontend.md`, `Frontend/React JS.md`, or `Frontend/Next JS.md`                                                                | `\| Skill \| Core Concepts \| Tools & Libraries \| Key Techniques \| Resources \|`                                                     |
+| **Backend System Design** (HLD, sharding, distributed systems, consensus)                                      | `Backend System Design/`                                                                                                                | Match existing guide structure / tables                                                                                                |
+| **AI Engineering — Core Foundations** (Embeddings, ANN, Attention, Compression)                                | `AI Engineering/Core AI/AI Engineering Concept.md`                                                                                      | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
+| **AI Engineering — Backend & Runtime** (RAG, Vector DBs, Agents, MCP, Serving, Gateways)                       | `AI Engineering/AI Backend Engineering/` (`RAG & Vector Architecture.md`, `Agentic AI & Orchestration.md`, `LLM Serving & Gateways.md`) | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
+| **AI Engineering — LLMOps & Quality** (Evals, Ragas, Tracing, Guardrails)                                      | `AI Engineering/LLMsOps/` (`LLM Evals & Benchmarks.md`, `Observability & Guardrails.md`)                                                | `\| Topic / Skill \| Core Concepts & Mental Model \| Tools & Libraries \| Key Techniques \| Tradeoffs & Failure Modes \| Resources \|` |
+| **AI Engineering — Frontend & System Design** (Generative UI, Vercel AI SDK, GEO/AEO)                          | `AI Engineering/AI Frontend Engineering/` or `AI System Design/`                                                                        | Match existing guide structure / tables                                                                                                |
 
 ---
 
@@ -38,9 +38,23 @@ Automatically detect the appropriate file and section based on topic keywords (e
    - What are the exact table headers in that specific section?
    - What is the tone, depth, and formatting style (e.g. bold titles, backtick usage, link formatting)?
    - How are existing rows formatted? (Use them as the direct few-shot template).
-2. **Audit for Duplicates**:
+2. **Audit for Duplicates & Trigger Enrichment Diff Mode**:
    - Check if the topic or any sub-concept is already documented (e.g., `WebSockets` under `## Communication Patterns`).
-   - If already present: **DO NOT** create a duplicate row. Propose an **enrichment diff** only if the user brings new tools, techniques, or tradeoffs.
+   - If already present: **DO NOT** create a duplicate row.
+   - **Enrichment Diff Protocol (Evergreen Notes)**:
+     - Never flatly reject with "already exists". Compare the existing row against the new information across: (1) New tools/libraries, (2) Modern techniques/patterns, (3) Additional tradeoffs or failure modes, (4) Better official resources.
+     - Present an **Enrichment Diff** preview showing exactly what would be added:
+       ```diff
+         Topic: WebSockets
+           Tools & Libraries: Socket.io, native WebSocket API
+       +   Added Tools: PartyKit, Cloudflare Durable Objects
+           Key Techniques: Event-based messaging, heartbeat/ping-pong
+       +   Added Techniques: Exponential backoff with jitter, binary streaming
+           Tradeoffs: ✅ Lowest latency bidirectional
+       +   Added Tradeoffs: ❌ Sticky sessions required without Redis Pub/Sub adapter
+       ```
+     - Show the merged table row preview.
+     - Upon user approval, update the row **in-place** in the markdown file without creating a duplicate row.
 3. **Section Placement**:
    - Confirm the exact heading and line position where the new row should be placed before proposing.
 
@@ -97,3 +111,4 @@ Uses the **5-column Command-Oriented schema**:
 - Show the table preview to the user matching the exact target schema.
 - Upon approval, append cleanly to the exact table in the target markdown file without corrupting markdown table syntax or surrounding headings.
 - If input was read from `inbox.md`, reset `inbox.md` to its original clean template.
+- Optional: run `python scripts/prettify_tables.py <file>` to ensure all vertical column pipes remain aligned.
