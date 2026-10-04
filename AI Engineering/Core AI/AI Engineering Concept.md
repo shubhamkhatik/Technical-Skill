@@ -1,147 +1,56 @@
+# AI Engineering Concepts
 
-
-### Vector Embeddings
-
-Vector embeddings convert real-world content, like documents and images, into 1-D numerical
-representations (arrays).
-These arrays have N values, representing N dimensions. They are called vectors and can be
-compared with each other efficiently.
-These vectors aren’t random blobs of numbers. They live in a semantic multi-dimensional
-space, and their position encodes real meaning.
-
-Key Takeaways
-● Vector embeddings = position in a multi-dimensional space.
-● Each axis can be thought of as representing a property: realism, length, time, and
-popularity.
-● Similar vectors = semantically similar content.
-● Clusters = emergent structure from data, not hard-coded.
+> **Mental Model:** AI Engineering bridges raw foundation models and scalable production systems. It focuses on: (1) **Representation & Search** (embeddings, quantization, ANN indexing), (2) **Grounded Generation** (RAG, structured constraints, guardrails), and (3) **Inference Efficiency** (KV caching, PagedAttention, FlashAttention, quantization, speculative decoding).
 
 ---
 
-### Compression & Quantization
+## Vector Embeddings & Similarity Search
 
-1. Product Quantization (PQ)
-● Break each vector into sub-vectors (e.g., split a 128D vector into 8 chunks of 16D).
-● For each chunk, find the nearest centroid from a pre-trained codebook                                ● Store only the index of the centroid, not the float values.
-So instead of storing 128 floats (512 bytes), you store 8 integers (8 bytes).
-That’s a 64x reduction.
-PQ is used heavily in Facebook's FAISS, Milvus, and other modern vector DBs.
-2. Scalar Quantization (SQ)
-● Compress each float in the vector individually.
-● Convert from 32-bit float to 8-bit (or less) integer using fixed scale and offset.
-This is simpler than PQ but less precise. Often combined with vector normalization
-
-Key Takeaways
-● Vector compression allows fast, scalable search.
-● PQ: Sub-vector + codebook trick (most powerful).
-● SQ: Per-float quantization.
-● INT8: Hardware-friendly, model-compatible.
-● Always balance: size vs recall vs latency.
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Vector Embeddings** | Dense 1D float arrays mapping real-world content (text, audio, images) into a continuous semantic multi-dimensional space. Position and geometric proximity encode semantic meaning and relationships | `openai/text-embedding-3`, `sentence-transformers`, `HuggingFace`, `cohere-embed` | Mean pooling over token embeddings, normalization to unit length ($L_2=1$), chunking strategies with overlap (256-512 tokens) | ✅ Enables semantic similarity search beyond exact keywords ❌ Fixed-dimension embeddings cause information loss on long documents; changing the embedding model invalidates all stored vectors | [Hugging Face Embeddings Guide](https://huggingface.co/blog/getting-started-with-embeddings), [SentenceTransformers Docs](https://sbert.net/) |
+| **Distance Metrics (Cosine vs L2 vs Dot Product)** | Mathematical distance/similarity functions measuring vector alignment. Cosine measures angular orientation; Euclidean ($L_2$) measures straight-line distance; Dot product measures magnitude + direction | `scikit-learn`, `NumPy`, `SciPy` | Cosine similarity for text (scale-invariant), Dot product for normalized vectors (fastest computation), $L_2$ for spatial/geometric embeddings | ✅ Cosine handles varying document lengths without magnitude distortion ❌ Unnormalized dot products bias toward wordy chunks; curse of dimensionality makes $L_2$ distance less discriminative in high dimensions | [Pinecone Similarity Metrics](https://www.pinecone.io/learn/vector-similarity-metrics/) |
+| **Vector Search Execution Pipeline** | End-to-end execution flow: Query $\rightarrow$ Embedding Generation $\rightarrow$ ANN Index Lookup $\rightarrow$ Distance Scoring $\rightarrow$ Top-K Extraction $\rightarrow$ Metadata Filtering (pre/post-filter) | `pgvector`, `Pinecone`, `Qdrant`, `Weaviate`, `FAISS` | Pre-filtering (filter metadata before vector search), Single-stage filtered ANN (iterative graph traversal with boolean predicates), Post-filtering (vector search then discard non-matches) | ✅ Sub-millisecond hybrid retrieval across millions of items ❌ Post-filtering causes recall collapse if top-K doesn't contain matching metadata; pre-filtering on non-indexed metadata causes slow full scans | [Pinecone Vector Search Basics](https://www.pinecone.io/learn/vector-database-basics/) |
 
 ---
 
-### Search Execution Flow: From Query to Result
+## Vector Indexing & Compression (ANN & Quantization)
 
-Step 1: Embed the Query
-
-Step 2: Search the Index
-
- we use ANN (Approximate Nearest Neighbor) indexes like IVF and HNSW.
-
-Step 3: Score & Rank
-For each candidate vector from the index, compute a similarity score using either:
-
-1. L2 distance (Euclidean)
-2. Cosine similarity
-3. Dot product (less common)
-Then return the top-K closest vectors. Cosine similarity is usually preferred for textual
-embeddings since it's scale-invariant
-
-Step 4: Post-processing & Filtering
-Now you apply filters if needed:
-● Language = English
-● Published after 2023
-● Category = Product Manual
-Metadata filters are applied after vector scoring.
-
-The vector search flow is
-Query → Embedding → Index Search → Distance Score → Top-K → Filter Result
-
-#### Indexing Techniques for Vector Search
-
-1. IVF – Inverted File Index
-Cluster the vector space into regions using K-Means. At query time, find the nearest cluster
-centroids, then only scan vectors within those clusters
-
-Tunable parameters:
-● Number of clusters
-● Number of clusters to search at runtime
-Trade-off:
-Lots of clusters → better recall and slower search.
-Few clusters → fast, less accurate search.
-Very large number of clusters → Slow, brittle recommendations.
-Very few clusters → Full table scan
-
-1. HNSW – Hierarchical Navigable Small World Graph
-A. Build a graph where nodes are vectors and edges connect to “close” vectors.
-B. The graph has multiple levels: The Top levels are sparse, the lower ones are dense.
-C. During construction, nodes with a high degree (highly connected nodes) are chosen to
-be promoted to an upper layer. This is done recursively, till a few nodes are on the top
-layer.
-D. Search is like climbing down a mountain: Start high, zoom into the nearest zones layer
-by layer.
-
-
-Why don’t we use QuadTrees or R-Trees?
-Because they work well for 2D or 3D. But in a 100D+ vector space, they suffer from the curse of
-dimensionality. The space becomes too sparse, and partitioning doesn’t help.
-Key takeaways
-● Indexing makes vector search practical at scale.
-● IVF splits the vector space into clusters.
-● HNSW builds a graph and uses multi-level traversal
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Inverted File Index (IVF)** | Partitions high-dimensional space into Voronoi cells using K-Means clustering. Queries only scan vectors belonging to the nearest $N$ cluster centroids (`nprobe`), avoiding full scans | `FAISS` (`IndexIVFFlat`), `Milvus` | Partition vector space into `nlist` Voronoi cells, tune `nprobe` (number of centroids scanned at query time), periodic centroid re-clustering | ✅ Drastic search speedup vs brute-force flat search ❌ Boundary effect: vectors close to query but lying across a Voronoi boundary are missed unless `nprobe` is tuned high (trading latency) | [FAISS Indexing Guide](https://github.com/facebookresearch/faiss/wiki/Faster-search) |
+| **Hierarchical Navigable Small World (HNSW)** | Multi-layer graph index inspired by skip-lists. Top layers have long-range sparse edges for rapid cross-space traversal; bottom layer contains dense local edges for precision search | `hnswlib`, `Qdrant`, `Weaviate`, `pgvector` (`hnsw`) | Greedy graph routing descending layers ("mountain climb"), tuning $M$ (max bidirectional edges per node) and `efConstruction` / `efSearch` (search beam size) | ✅ Best-in-class recall vs latency curve in high dimensions; solves curse of dimensionality where QuadTrees/R-Trees fail ($>10$D) ❌ High memory consumption (graph pointers stored in RAM); slow build times for massive vector sets | [HNSW Paper](https://arxiv.org/abs/1603.09320), [Pinecone HNSW Guide](https://www.pinecone.io/learn/series/faiss/hnsw/) |
+| **Product Quantization (PQ)** | Lossy vector compression dividing high-dimensional vectors (e.g. 128D) into $M$ sub-vectors (e.g. 8 chunks of 16D), quantizing each sub-vector to the nearest centroid index in a trained codebook (e.g. 8 bytes vs 512 bytes = 64x reduction) | `FAISS` (`IndexIVFPQ`), `Milvus` | Codebook generation via k-means, storing byte indices instead of floats, Asymmetric Distance Computation (ADC) | ✅ Massive RAM reduction (enables billions of vectors in memory), fast approximate distance lookup ❌ Quantization noise causes loss of fine-grained precision/recall; requires offline training on representative vectors | [FAISS Product Quantization](https://github.com/facebookresearch/faiss/wiki/Vector-quantization) |
+| **Scalar Quantization (SQ)** | Per-component quantization mapping 32-bit floats (`FP32`) to 8-bit integers (`INT8`) using linear scaling and min/max offset clamping | `pgvector` (halfvec/SQ8), `Qdrant` | `SQ8` (4x memory reduction), symmetric vs asymmetric scalar range mapping, combining with $L_2$ normalization | ✅ Simple, no codebook training required, hardware-accelerated integer SIMD instructions ❌ Less compression ratio than PQ (4x vs 16-64x); precision loss on skewed non-Gaussian vector distributions | [Qdrant Quantization Docs](https://qdrant.tech/documentation/guides/quantization/) |
 
 ---
 
-### How to Reduce Hallucinations
+## Hallucination Mitigation & Output Reliability
 
-1. Ground the Prompt with Facts
-○ Use Retrieval-Augmented Generation (RAG) to feed in real documents.
-○ Add inline citations or structured constraints in the system prompt.
-2. Reduce Prompt Scope
-○ Don’t stuff 20 documents into every query.
-○ Input the top 2–3 most relevant chunks.
-○ Smaller prompt = sharper context = less drift
-
-3. Force Answer Shape
-○ Use few-shot prompting (examples).
-○ Add instructions like "Answer only based on the documents provided. Do not
-speculate."
-○ Use reusable templates:
-"You are a support assistant. Use the provided context to
-answer..."
-4. Retrieval Augmented Generation (RAG)
-○ Select documents most relevant to a query based on vector search.
-○ Use the documents to augment the original query.
-5. Guardrails & Validation
-○ Post-process with rules: “If it says ‘7 days’, check against actual policy.”
-○ Use LLM output as a draft → validate using code
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Grounded Retrieval-Augmented Generation (RAG)** | Augmenting prompts with verified external factual contexts retrieved via vector/hybrid search before generation, forcing the LLM to synthesize only from provided truth sources | `LlamaIndex`, `LangChain`, `Ragas`, `TruLens` | Chunk size optimization (256-512 tokens with 10-20% overlap), context window scoping (top 2-3 most relevant chunks instead of stuffing 20 chunks), citation extraction (`[1]`) | ✅ Eliminates dependence on stale parametric memory, verifiable citations ❌ Context stuffing degrades attention ("Lost in the Middle"); retrieved noise or partial relevance leads to synthesis errors | [RAG Survey Paper](https://arxiv.org/abs/2312.10997), [OpenAI RAG Best Practices](https://platform.openai.com/docs/guides/optimizing-llm-accuracy) |
+| **Constrained Decoding & Structured Outputs** | Restricting LLM token generation at decoding time to conform strictly to a predefined schema (JSON Schema, Pydantic, regex) or forcing exact answer shapes | `Outlines`, `Instructor`, `Zod`, OpenAI Structured Outputs (`json_schema`) | Context-Free Grammar (CFG) token masking, few-shot demonstration examples, negative system prompt constraints ("Answer ONLY from provided text") | ✅ 100% deterministic output schema compliance, zero parse errors in downstream code ❌ Token masking can increase latency; strict formatting constraints can slightly degrade reasoning depth on complex logic | [Outlines Documentation](https://dottxt-ai.github.io/outlines/), [OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs) |
+| **Guardrails & Programmatic Validation** | Pre- and post-generation policy enforcement pipeline validating inputs and outputs against security, accuracy, and domain compliance rules | `NeMo Guardrails`, `Guardrails AI`, `Llama Guard` | Fact-checking assertions against canonical DB, regex/pattern filters, semantic input moderation, self-consistency checks | ✅ Hard safety gates preventing toxic or hallucinated facts reaching production ❌ Adds multi-step latency overhead; false positives can block valid user requests | [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails), [Guardrails AI Docs](https://www.guardrailsai.com/) |
 
 ---
 
-### LLM Optimization technique
+## LLM Runtime & Attention Optimizations
 
-Key Takeaways
-● Attention helps a model understand what matters and how words relate to each other.
-● KV caching helps the model do this efficiently, especially when generating longer texts
-
-KV Caching  + Mixture of Experts (MoE) +  Paged Attention + Flash Attention 
-
----
-
-**Tradeoffs in LLMs**
-
-**Quantization + Sparse Attention + SLM and Distillation + Speculative Decoding**
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **KV Caching** | Caching key and value projection tensors computed during prior generation steps in GPU memory, avoiding redundant $O(N^2)$ recalculation during autoregressive decoding | `vLLM`, `Hugging Face Transformers`, `TGI` | Prefill phase computes all KV pairs in parallel; decode phase appends single KV token to cache; prompt caching (sharing static system prompt KV cache across requests) | ✅ Dramatically cuts per-token inference latency from $O(N^2)$ to $O(N)$ ❌ VRAM explosion with long context windows and high concurrency (KV cache often consumes more GPU memory than model weights) | [Hugging Face KV Cache Explained](https://huggingface.co/blog/optimize-llm), [vLLM PagedAttention Paper](https://arxiv.org/abs/2309.06180) |
+| **PagedAttention & Virtual Memory** | Managing the KV cache like operating system virtual memory using page tables, partitioning contiguous tensor allocations into non-contiguous physical memory blocks | `vLLM`, `TensorRT-LLM` | Block size allocation (16/32 tokens per block), memory sharing for parallel sampling and beam search without duplication, dynamic allocation on-demand | ✅ Eliminates internal/external memory fragmentation (wasted VRAM reduced from 60-80% down to <4%), increases batch size by 2-4x ❌ Slight lookup overhead in block table mapping; requires specialized CUDA kernels | [vLLM Docs](https://docs.vllm.ai/), [PagedAttention Paper](https://arxiv.org/abs/2309.06180) |
+| **FlashAttention (v1, v2, v3)** | Fast, IO-aware exact attention algorithm computing standard softmax attention without materializing the massive intermediate $N \times N$ attention matrix in high-bandwidth memory (HBM) | `FlashAttention-2`, `PyTorch` (`scaled_dot_product_attention`) | Tiling (split $Q, K, V$ into blocks that fit in fast SRAM), online softmax scaling, recomputing intermediate values during backward pass rather than saving to HBM | ✅ 2-4x faster attention computation, memory complexity drops from $O(N^2)$ to $O(N)$ ❌ Requires specific GPU architectures (Ampere, Hopper, Ada Lovelace); limited support for non-standard custom attention masks | [FlashAttention GitHub](https://github.com/Dao-AILab/flash-attention), [FlashAttention Paper](https://arxiv.org/abs/2205.14135) |
+| **Mixture of Experts (MoE)** | Replacing dense feed-forward network (FFN) layers with multiple sparse "expert" sub-networks, dynamically routing each token to the top-$K$ most relevant experts via a gating router | `Mixtral-8x7B`, `DeepSeek-V2/V3`, `vLLM`, `MegaBlocks` | Top-2 gating with softmax routing, load balancing loss (preventing expert collapse), router jitter/noise | ✅ Inference computation cost of a smaller model with the capacity and knowledge of a massive model ❌ Massive total parameter footprint requires high VRAM to load all experts; router routing bottlenecks across multi-GPU setups | [Mistral MoE Blog](https://mistral.ai/news/mixtral-of-experts/), [Hugging Face MoE Guide](https://huggingface.co/blog/moe) |
 
 ---
 
-**Context Injection** feeds the AI the *facts* it needs to know, while **Chain of Thought** guides the AI through the *logical steps* it must take to process those facts
+## Model Efficiency, Compression & Inference Acceleration
+
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Post-Training Quantization (AWQ / GPTQ / GGUF)** | Compressing model weights from 16-bit floats (`FP16`/`BF16`) to 4-bit or 8-bit integers (`INT4`/`INT8`) post-training with minimal perplexity degradation | `AutoAWQ`, `AutoGPTQ`, `llama.cpp` (GGUF), `bitsandbytes` | Activation-aware Weight Quantization (AWQ protects top 1% salient weights), Second-order error minimization (GPTQ), GGUF format for CPU/Metal/consumer GPU quantization | ✅ 60-75% reduction in model VRAM footprint; allows running 70B models on single GPU ❌ Slight degradation on complex mathematical or reasoning benchmarks; kernel incompatibility on older GPU architectures | [AWQ Paper](https://arxiv.org/abs/2306.00978), [llama.cpp](https://github.com/ggerganov/llama.cpp) |
+| **Small Language Models (SLMs) & Knowledge Distillation** | Training compact, specialized models (1B–7B params) using synthetic outputs, reasoning traces, and logits from frontier teacher models (e.g. GPT-4) | `Phi-3/3.5`, `Llama-3.2-1B/3B`, `Qwen-2.5-Coder`, `DistilBERT` | Sequence-level distillation, curated synthetic high-quality datasets ("textbooks are all you need"), task-specific fine-tuning | ✅ Ultra-low inference cost, fast TTFT, runs locally on-device / edge ❌ Narrower general knowledge and world facts; less resistant to adversarial jailbreaks | [Microsoft Phi-3 Technical Report](https://arxiv.org/abs/2404.14219), [Hugging Face Distillation](https://huggingface.co/docs/transformers/tasks/knowledge_distillation) |
+| **Speculative Decoding** | Accelerating autoregressive token generation using a small, fast "draft model" to generate $K$ candidate tokens, which are verified simultaneously in a single forward pass by the large "target model" | `vLLM`, `TensorRT-LLM`, `Medusa`, `EAGLE` | Draft-then-verify loop, speculative tree verification, temperature-aware rejection sampling | ✅ 2x–3x speedup in tokens/second without any loss in output quality (mathematically identical to target model) ❌ VRAM overhead of hosting both draft and target models; low speedup on hard creative/reasoning tasks where draft model acceptance rate drops | [Speculative Decoding Paper](https://arxiv.org/abs/2211.17192), [vLLM Speculative Decoding](https://docs.vllm.ai/en/latest/features/spec_decode.html) |
+| **Context Injection vs Chain of Thought (CoT)** | Dual prompt architectural paradigms: Context Injection supplies external factual grounding ("what to know"), whereas Chain of Thought induces explicit multi-step deductive reasoning paths ("how to think") | Prompt templates, `OpenAI o1/o3-mini`, `DeepSeek-R1` | Zero-shot CoT ("Think step by step"), Few-shot reasoning exemplars, XML tags delimiting context (`<context>`) vs reasoning (`<thought>`) | ✅ Dramatically improves logic, math, and multi-hop synthesis ❌ Significantly increases output token count and latency; ungrounded CoT can produce convincing but hallucinated rationale steps | [Chain-of-Thought Paper](https://arxiv.org/abs/2201.11903), [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) |

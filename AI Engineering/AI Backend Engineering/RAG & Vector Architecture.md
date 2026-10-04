@@ -1,0 +1,43 @@
+# RAG & Vector Architecture
+
+> **Mental Model:** Retrieval-Augmented Generation (RAG) grounds non-deterministic LLMs on deterministic private data. The pipeline consists of: (1) **Ingestion & Chunking**, (2) **Embedding Generation**, (3) **Hybrid Indexing (Vector + Lexical)**, (4) **Multi-Stage Retrieval & Reranking**, and (5) **Context Assembly**.
+
+---
+
+## Chunking & Ingestion Strategies
+
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Fixed-Size with Overlap** | Splits text by character/token count with a sliding window. Simplest baseline strategy. Preserves local context across boundaries | `LangChain` (`RecursiveCharacterTextSplitter`), `LlamaIndex` | Chunk size (256–512 tokens), 10–20% overlap window, token-aware splitting (tiktoken) | ✅ Fast, deterministic, predictable chunk lengths ❌ Blind to semantic boundaries; cuts paragraphs/sentences in half; causes contextual fragmentation | [LangChain Text Splitters](https://python.langchain.com/docs/concepts/text_splitters/) |
+| **Semantic Chunking** | Splits text dynamically based on shifts in semantic meaning by monitoring embedding distance between consecutive sentences | `LlamaIndex` (`SemanticSplitterNodeParser`), `Chonkie` | Sentence boundary detection, cosine distance thresholding, break points where semantic similarity drops | ✅ High semantic coherence per chunk, captures natural concept shifts ❌ Computationally expensive (requires embedding every sentence); variable chunk sizes can overflow context budgets | [LlamaIndex Semantic Splitter](https://docs.llamaindex.ai/en/stable/module_guides/loading/node_parsers/modules/#semanticsplitternodeparser) |
+| **Parent-Child Chunking** | Indexes small granular chunks (child: 128 tokens) for precise vector matching, but retrieves larger surrounding chunks (parent: 1024 tokens) for LLM context generation | `LangChain` (`ParentDocumentRetriever`), `LlamaIndex` | Small chunk embeddings in Vector DB, Parent document lookup in Key-Value store (Redis/Postgres) | ✅ High retrieval accuracy without starving the LLM of surrounding context ❌ Requires managing dual stores (Vector DB + Docstore); increased storage footprint | [LangChain Parent Document Retriever](https://python.langchain.com/docs/how_to/parent_document_retriever/) |
+| **Document-Aware Chunking** | Parses semi-structured documents (Markdown, HTML, PDF) respecting headings, tables, code blocks, and DOM hierarchy | `Unstructured.io`, `MarkdownHeaderTextSplitter`, `LlamaParse` | Preserve header breadcrumbs in chunk metadata (`# H1 > ## H2`), isolate tables into unified markdown strings | ✅ Preserves document hierarchy and tabular data intact ❌ Complex parsing pipelines; slow ingestion on messy PDFs; parser failures on scanned images | [LlamaParse](https://docs.cloud.llamaindex.ai/active/llamaparse) |
+
+---
+
+## Vector Databases (Managed vs Self-Hosted)
+
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **PostgreSQL + pgvector** | Vector similarity search extension directly inside your existing relational database. Eliminates data synchronization across separate DBs | `PostgreSQL`, `pgvector`, `Supabase`, `Prisma` | `HNSW` or `IVFFlat` vector indexes, hybrid SQL + vector queries in single transaction, `halfvec` for quantization | ✅ Zero data synchronization lag; ACID transactions; reuses existing DB infra ❌ Less optimal than dedicated vector DBs for $>10\text{M}$ vectors; high RAM consumption under heavy write loads | [pgvector GitHub](https://github.com/pgvector/pgvector), [Supabase Vector](https://supabase.com/docs/guides/ai) |
+| **Dedicated Vector DBs (Qdrant / Milvus)** | Purpose-built distributed vector engines optimized for high-throughput similarity search, advanced filtering, and billion-scale vector indexes | `Qdrant` *(Rust-based)*, `Milvus` *(distributed)* | In-memory payload filtering during graph traversal (single-stage filtered ANN), Product Quantization (PQ), multi-tenancy partitions | ✅ Extreme throughput, single-stage pre-filtering prevents recall collapse, built-in quantization ❌ Separate database to manage, monitor, and sync; data consistency risks with primary application DB | [Qdrant Docs](https://qdrant.tech/documentation/), [Milvus Docs](https://milvus.io/docs) |
+| **Serverless / Hosted Vector DBs** | Fully managed vector databases eliminating cluster operations, sharding, and scaling overhead | `Pinecone`, `Weaviate Cloud` | Serverless namespaces, metadata filtering, usage-based pricing, automatic index scaling | ✅ Zero infra maintenance, instant setup, scales to billions of vectors ❌ Vendor lock-in; recurring cost can become expensive at high query volumes; higher latency than co-located Postgres | [Pinecone Docs](https://docs.pinecone.io/) |
+
+---
+
+## Hybrid Search & Reranking Architecture
+
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Hybrid Search (Dense + Sparse)** | Combines semantic vector search (Dense: embeddings) with keyword search (Sparse: BM25/SPLADE) to capture both semantic intent and exact keywords/IDs | `BM25`, `SPLADE`, `Qdrant`, `Pinecone Hybrid`, `Elasticsearch` | Reciprocal Rank Fusion (RRF) to merge score rankings, alpha weighting ($\alpha \cdot \text{dense} + (1-\alpha) \cdot \text{sparse}$) | ✅ Best of both worlds: handles fuzzy semantic questions AND exact acronyms, serial numbers, product SKUs ❌ Dual indexing doubles storage; tuning $\alpha$ parameter requires domain-specific evaluation | [Pinecone Hybrid Search](https://docs.pinecone.io/guides/search/hybrid-search), [Qdrant Hybrid Search](https://qdrant.tech/articles/hybrid-search/) |
+| **Cross-Encoder Reranking** | Two-stage retrieval: fast bi-encoder extracts top-50 candidates; heavy cross-encoder scores query-document pairs jointly to output the final top-5 most relevant chunks | `Cohere Rerank`, `BGE-Reranker`, `FlashRank` *(CPU)* | Joint attention over query + document, score thresholding, rerank before context injection | ✅ Dramatically improves Precision@K; filters out false-positive vector matches ❌ Adds 50–150ms latency; cross-encoders cannot be pre-computed (must run at query time) | [Cohere Rerank Docs](https://docs.cohere.com/docs/reranking), [BGE-Reranker](https://github.com/FlagOpen/FlagEmbedding) |
+
+---
+
+## Advanced RAG Patterns
+
+| Topic / Skill | Core Concepts & Mental Model | Tools & Libraries | Key Techniques | Tradeoffs & Failure Modes | Resources |
+| --- | --- | --- | --- | --- | --- |
+| **Hypothetical Document Embeddings (HyDE)** | LLM generates a hypothetical answer to the user query first. The hypothetical answer is embedded and used to retrieve real documents | `LlamaIndex`, `LangChain` | Prompt model for zero-shot hypothetical response, embed hypothetical document instead of raw short query | ✅ Overcomes vocabulary mismatch between short user queries and long target documents ❌ If the hypothetical answer hallucinates incorrect facts, retrieval will fetch irrelevant or misleading chunks | [HyDE Paper](https://arxiv.org/abs/2212.10496) |
+| **Multi-Query & Query Expansion** | Rewrites a single ambiguous user query into multiple distinct queries from different perspectives, retrieves documents for each, and deduplicates | `LangChain` (`MultiQueryRetriever`) | LLM generates 3–5 query variations, parallel vector queries, set union deduplication | ✅ Overcomes ambiguous query phrasing; significantly improves recall across complex domains ❌ Multiplies vector DB query load by $N\times$; extra LLM call adds latency | [LangChain MultiQueryRetriever](https://python.langchain.com/docs/how_to/MultiQueryRetriever/) |
+| **Contextual Compression & Chunk Pruning** | LLM or small classifier extracts only the sentences directly relevant to the query from the retrieved chunks before assembling the prompt | `LangChain` (`ContextualCompressionRetriever`) | Sentence extraction, LLM chain extractor, token minimization | ✅ Minimizes prompt token bloat; prevents "Lost in the Middle" attention degradation ❌ Additional LLM processing step increases latency and compute costs | [LangChain Contextual Compression](https://python.langchain.com/docs/how_to/contextual_compression/) |
