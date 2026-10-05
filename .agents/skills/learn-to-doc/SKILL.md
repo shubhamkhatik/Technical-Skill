@@ -9,7 +9,8 @@ This skill guides the AI agent to turn raw technical notes or topic keywords int
 
 ## Invocation Triggers
 Trigger this skill whenever the user says:
-- "Process inbox"
+- "Process inbox" (when content contains technical concepts or architecture notes)
+- "Process inbox technical"
 - "I learned X..."
 - "Add topic X to my notes..."
 - "Process this raw learning on X..."
@@ -55,11 +56,21 @@ Trigger this skill whenever the user says:
   - **DevOps & Cloud**: 5 columns with `Key Commands & Techniques` and `Tradeoffs & Failure Modes`.
 - **Resource Priority**: MDN/official docs first; authoritative guides second.
 
-### 5. Append
+### 5. Append & Reset Dropzone
 - Upon user confirmation, append rows into the target table before section breaks (`---` or next `##`).
-- If the content was processed from `inbox.md`, reset `inbox.md` to its original empty dropzone template.
+- If the content was processed from `inbox.md`, clear the processed technical notes from `inbox.md`.
 
 ### 6. Format & Coverage Sync
 - Run `python scripts/prettify_tables.py <target_file>` to ensure vertical column pipe alignment.
-- Run `python scripts/sync_interview_coverage.py` to refresh [INTERVIEW_COVERAGE.md](file:///g:/study/Doc-Update/Technical%20Skill/INTERVIEW_COVERAGE.md) and update readiness against [`Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire).
+- Run `python scripts/sync_interview_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](file:///g:/study/Doc-Update/Technical%20Skill/INTERVIEW_COVERAGE.md).
+
+### 7. 🔄 2-Way Cross-Linking Bridge (Interview Inspire)
+- For every documented or enriched concept (e.g. *WebSockets*, *Redis*, *RAG*):
+  - Check whether relevant interview questions exist in the corresponding file in `Interview Inspire/`.
+  - Proactively suggest a ready-to-copy snippet of **5 high-yield interview questions** formatted for `Interview Inspire/` covering:
+    1. 🧠 **Core Concept**: Mental model & fundamental mechanics.
+    2. ⚙️ **Implementation**: Low-level protocol, handshake, or internals.
+    3. ⚖️ **Tradeoffs & Failure Modes**: Bottlenecks, edge cases, failure states.
+    4. 📊 **Observability**: Latency, metrics, logs, tracing.
+    5. 🚨 **Production Debugging**: Incident scenarios, memory/socket leaks.
 
