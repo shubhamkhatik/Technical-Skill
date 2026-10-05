@@ -60,7 +60,8 @@ def get_gemini_api_key():
 
 def call_gemini(prompt: str, api_key: str) -> str:
     """Calls Gemini API using standard library urllib."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    # Primary: gemini-2.0-flash (free tier on Google AI Studio)
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
     payload = {
         "contents": [
             {
@@ -85,9 +86,9 @@ def call_gemini(prompt: str, api_key: str) -> str:
             candidate = data["candidates"][0]["content"]["parts"][0]["text"]
             return candidate
     except urllib.error.HTTPError as e:
-        # Fallback to gemini-1.5-flash if 2.5 is unavailable
+        # Fallback to gemini-1.5-flash if 2.0 is unavailable or throttled
         err_msg = e.read().decode("utf-8")
-        print(f"Gemini 2.5-flash returned HTTP {e.code}, attempting gemini-1.5-flash fallback...", file=sys.stderr)
+        print(f"Gemini 2.0-flash returned HTTP {e.code}, attempting gemini-1.5-flash fallback...", file=sys.stderr)
         url_fb = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
         req_fb = urllib.request.Request(
             url_fb,
@@ -101,6 +102,7 @@ def call_gemini(prompt: str, api_key: str) -> str:
         except Exception as e_fb:
             print(f"Error calling Gemini API: {e_fb}\nDetails: {err_msg}", file=sys.stderr)
             sys.exit(1)
+
 
 def extract_headings_and_content(base_path: str):
     """Gathers existing headings and sample text from each file for context."""
