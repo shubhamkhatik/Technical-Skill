@@ -360,15 +360,15 @@ INSTRUCTIONS:
 
     # Auto-refresh bidirectional coverage
     repo_root = os.path.abspath(os.path.join(base_path, ".."))
-    try:
-        scripts_dir = os.path.join(repo_root, "scripts")
-        if scripts_dir not in sys.path:
-            sys.path.insert(0, scripts_dir)
-        import sync_coverage
-        sync_coverage.main()
-    except Exception as e:
-        print(f"Notice: Could not auto-refresh coverage: {e}")
+    sync_script = os.path.join(repo_root, "scripts", "sync_coverage.py")
+    if os.path.exists(sync_script):
+        try:
+            import subprocess
+            subprocess.run([sys.executable, sync_script], check=True)
+        except Exception as e:
+            print(f"Notice: Could not auto-refresh coverage: {e}")
 
 if __name__ == "__main__":
     main()
+
 
