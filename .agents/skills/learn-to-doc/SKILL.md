@@ -19,13 +19,14 @@ Trigger this skill whenever the user says:
 
 ### 1. Identify Domain & Target File
 - Analyze the topic keywords.
-- Locate the target file relative to the repository root:
-  - `Frontend System Design/Frontend System Design.md`
-  - `Backend/Backend.md`
-  - `DevOps for Developers/DevOps for Developer.md`
-  - `Frontend/Frontend.md`, `React JS.md`, `Next JS.md`
-  - `AI Engineering/`
-  - `Backend System Design/`
+- Locate the target file inside the `Technical Skill/` directory:
+  - `Technical Skill/Frontend System Design/Frontend System Design.md`
+  - `Technical Skill/Backend/Backend.md`
+  - `Technical Skill/DevOps for Developers/DevOps for Developer.md`
+  - `Technical Skill/Frontend/` (`Frontend.md`, `React JS.md`, `Next JS.md`)
+  - `Technical Skill/AI Engineering/`
+  - `Technical Skill/Backend System Design/`
+  - `Technical Skill/DSA/DSA.md`
 
 ### 2. Mandatory Grounding & Deduplication (Read First)
 - **Inspect Target File**: Open and read the target section using `view_file`.

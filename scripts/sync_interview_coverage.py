@@ -98,8 +98,27 @@ TRACK_MAPPING = {
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/shubhamkhatik/Interview-Inspire/main"
 GITHUB_REPO_BASE = "https://github.com/shubhamkhatik/Interview-Inspire/blob/main"
 
-def fetch_remote_file(rel_path: str) -> str:
-    """Fetches a markdown file from the GitHub repository."""
+def resolve_tech_skill_path(repo_root: str, rel_path: str) -> str:
+    """Resolves path whether inside Technical Skill/ subfolder or at root."""
+    p1 = os.path.join(repo_root, "Technical Skill", rel_path)
+    if os.path.exists(p1):
+        return p1
+    p2 = os.path.join(repo_root, rel_path)
+    if os.path.exists(p2):
+        return p2
+    return p1
+
+def fetch_question_file(repo_root: str, rel_path: str) -> str:
+    """Fetches interview questions from local Interview Inspire directory or fallback remote URL."""
+    local_path = os.path.join(repo_root, "Interview Inspire", rel_path)
+    if os.path.exists(local_path):
+        try:
+            with open(local_path, "r", encoding="utf-8") as f:
+                return f.read()
+        except Exception as e:
+            print(f"Warning: Could not read local {local_path}: {e}", file=sys.stderr)
+            
+    # Fallback to remote GitHub
     url = f"{GITHUB_RAW_BASE}/{rel_path}"
     req = urllib.request.Request(url, headers={"User-Agent": "TechnicalSkillSync/1.0"})
     try:
@@ -136,7 +155,7 @@ def extract_local_topics(repo_root: str, local_files: list[str]) -> set[str]:
     topics = set()
     
     for rel_path in local_files:
-        full_path = os.path.join(repo_root, rel_path)
+        full_path = resolve_tech_skill_path(repo_root, rel_path)
         if not os.path.exists(full_path):
             continue
             
@@ -247,7 +266,7 @@ def generate_coverage_report(repo_root: str) -> str:
         local_files = config["local_files"]
         
         print(f"  -> Scanning {domain}...")
-        remote_content = fetch_remote_file(remote_rel)
+        remote_content = fetch_question_file(repo_root, remote_rel)
         questions = parse_interview_questions(remote_content)
         local_topics = extract_local_topics(repo_root, local_files)
         
@@ -261,11 +280,15 @@ def generate_coverage_report(repo_root: str) -> str:
             if covered:
                 domain_covered += 1
                 if len(covered_samples) < 15:
+                    if os.path.exists(os.path.join(repo_root, "Interview Inspire", remote_rel)):
+                        sample_link = f"./Interview%20Inspire/{remote_rel}"
+                    else:
+                        sample_link = f"{GITHUB_REPO_BASE}/{remote_rel}"
                     covered_samples.append({
                         "domain": domain,
                         "question": q_text,
                         "topic": matched_topic,
-                        "remote_link": f"{GITHUB_REPO_BASE}/{remote_rel}",
+                        "remote_link": sample_link,
                     })
             else:
                 domain_gaps.append(item)
@@ -297,7 +320,7 @@ def generate_coverage_report(repo_root: str) -> str:
     lines = [
         "# 🎯 Interview Readiness & Question Coverage Matrix",
         "",
-        "> **Live Synchronization with [`shubhamkhatik/Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire)**  ",
+        "> **Live Synchronization with [`Interview-Inspire`](./Interview%20Inspire/README.md)**  ",
         f"> **Overall Preparation Score:** `{overall_pct:.1f}%` of tracked interview questions ({total_covered_all}/{total_questions_all}) have corresponding concept notes in `Technical-Skill`.",
         "",
         "---",
@@ -311,8 +334,19 @@ def generate_coverage_report(repo_root: str) -> str:
     for s in domain_stats:
         bar_len = int(s["pct"] / 10)
         progress = "🟩" * bar_len + "⬜" * (10 - bar_len)
+        primary_rel = s["primary_local"]
+        if os.path.exists(os.path.join(repo_root, "Technical Skill", primary_rel)):
+            primary_target = f"./Technical%20Skill/{primary_rel}"
+        else:
+            primary_target = f"./{primary_rel}"
+            
+        if os.path.exists(os.path.join(repo_root, "Interview Inspire", s["remote_rel"])):
+            bank_target = f"./Interview%20Inspire/{s['remote_rel']}"
+        else:
+            bank_target = f"{GITHUB_REPO_BASE}/{s['remote_rel']}"
+            
         lines.append(
-            f"| **{s['domain']}** | {s['total']} | {s['covered']} | {progress} `{s['pct']:.1f}%` | [`{os.path.basename(s['primary_local'])}`](./{s['primary_local']}) | [Practice Questions ↗]({GITHUB_REPO_BASE}/{s['remote_rel']}) |"
+            f"| **{s['domain']}** | {s['total']} | {s['covered']} | {progress} `{s['pct']:.1f}%` | [`{os.path.basename(primary_rel)}`]({primary_target}) | [Practice Questions ↗]({bank_target}) |"
         )
         
     lines.extend([
