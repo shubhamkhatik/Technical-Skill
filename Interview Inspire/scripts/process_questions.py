@@ -128,20 +128,35 @@ def read_input_text(base_path: str) -> str:
     if issue_body and issue_body.strip():
         return issue_body.strip()
     
-    # 3. From inbox.md
-    inbox_path = os.path.join(base_path, "inbox.md")
-    if not os.path.exists(inbox_path):
+    # 3. From root inbox.md or local inbox.md
+    repo_root = os.path.abspath(os.path.join(base_path, ".."))
+    candidate_inboxes = [
+        os.path.join(repo_root, "inbox.md"),
+        os.path.join(base_path, "inbox.md")
+    ]
+    
+    inbox_path = None
+    for p in candidate_inboxes:
+        if os.path.exists(p):
+            inbox_path = p
+            break
+            
+    if not inbox_path:
         return ""
     
     with open(inbox_path, "r", encoding="utf-8") as f:
         content = f.read()
         
-    marker = "<!-- PASTE YOUR QUESTIONS BELOW THIS LINE -->"
-    if marker in content:
-        raw_questions = content.split(marker)[1].strip()
-    else:
-        raw_questions = content.strip()
-        
+    markers = [
+        "<!-- PASTE RAW NOTES, TOPICS, OR INTERVIEW QUESTIONS BELOW THIS LINE -->",
+        "<!-- PASTE YOUR QUESTIONS BELOW THIS LINE -->"
+    ]
+    raw_questions = content
+    for marker in markers:
+        if marker in content:
+            raw_questions = content.split(marker)[1].strip()
+            break
+            
     return raw_questions
 
 def append_question_to_file(file_path: str, heading: str, subheading: str, question: str):
@@ -334,12 +349,26 @@ INSTRUCTIONS:
 
     # Reset inbox.md if we read from inbox.md
     if not (len(sys.argv) > 2 and sys.argv[1] == "--text") and not os.environ.get("ISSUE_BODY"):
-        inbox_path = os.path.join(base_path, "inbox.md")
-        with open(inbox_path, "w", encoding="utf-8") as f:
-            f.write(INBOX_TEMPLATE)
-        print("\n✔ inbox.md has been reset to clean template.")
+        repo_root = os.path.abspath(os.path.join(base_path, ".."))
+        target_inbox = os.path.join(repo_root, "inbox.md") if os.path.exists(os.path.join(repo_root, "inbox.md")) else os.path.join(base_path, "inbox.md")
+        if os.path.exists(target_inbox):
+            with open(target_inbox, "w", encoding="utf-8") as f:
+                f.write(INBOX_TEMPLATE)
+            print(f"\n✔ {os.path.basename(target_inbox)} has been reset to clean template.")
 
     print(f"\nFinished! Added {added_count} new questions successfully.")
 
+    # Auto-refresh bidirectional coverage
+    repo_root = os.path.abspath(os.path.join(base_path, ".."))
+    try:
+        scripts_dir = os.path.join(repo_root, "scripts")
+        if scripts_dir not in sys.path:
+            sys.path.insert(0, scripts_dir)
+        import sync_coverage
+        sync_coverage.main()
+    except Exception as e:
+        print(f"Notice: Could not auto-refresh coverage: {e}")
+
 if __name__ == "__main__":
     main()
+
