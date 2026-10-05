@@ -105,8 +105,8 @@
   ```bash
   python scripts/prettify_tables.py --all
   ```
-* 🎯 **[Live Interview Coverage Matrix (INTERVIEW_COVERAGE.md)](./INTERVIEW_COVERAGE.md)** — Synchronizes in real time with [`shubhamkhatik/Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire) to track concept coverage % and uncover missing question gaps:
+* 🎯 **[Live Dual-Track Coverage Matrix (INTERVIEW_COVERAGE.md)](./INTERVIEW_COVERAGE.md)** — Synchronizes in real time with [`Interview-Inspire`](./Interview%20Inspire/README.md) to track concept coverage % and uncover missing question gaps:
   ```bash
-  python scripts/sync_interview_coverage.py
+  python scripts/sync_coverage.py
   ```
 * 🤖 **[Agent Instructions (AGENTS.md)](./AGENTS.md)** — Mandatory AI coding agent guidelines for grounding, deduplication, enrichment diffs, and adaptive schemas.

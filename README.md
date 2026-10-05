@@ -42,13 +42,13 @@ Instead of rejecting topics with *"already exists"*, the system treats your docu
 - Merges new tools, techniques, and failure modes **in-place** without creating duplicate rows.
 
 ### 3. 🎯 Live Interview Sync (`INTERVIEW_COVERAGE.md`)
-Cross-references notes in real time against [`shubhamkhatik/Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire) (390+ curated interview questions):
+Cross-references notes in real time against [`Interview-Inspire`](./Interview%20Inspire/README.md) (400+ curated interview questions):
 - Tracks your **Overall Preparation Score** (e.g. `25.6%` of questions covered).
-- Generates a visual domain-by-domain progress bar.
-- Outputs an actionable **High-Yield Checklist** showing interview questions that don't yet have concept notes in this repo.
+- Tracks your **Concept Question Coverage** (concepts documented in notes that have active questions).
+- Highlights **Orphan Concepts** in notes needing questions and **Uncovered Questions** needing concept tables.
 - Refresh anytime with:
   ```bash
-  python scripts/sync_interview_coverage.py
+  python scripts/sync_coverage.py
   ```
 
 ### 4. 📐 Zero-Dependency Table Prettifier (`scripts/prettify_tables.py`)
@@ -58,7 +58,7 @@ python scripts/prettify_tables.py --all
 ```
 
 ### 5. 🤖 Automated AI Pair-Programming (`AGENTS.md`)
-All repository rules, schema formats, deduplication logic, and automation protocols are codified in [`AGENTS.md`](./AGENTS.md) and `.agents/skills/learn-to-doc/`. Every AI agent automatically adheres to these rules—you don't have to remember manual commands.
+All repository rules, schema formats, deduplication logic, and automation protocols are codified in [`AGENTS.md`](./AGENTS.md) and `.agents/skills/`. Every AI agent automatically adheres to these rules—you don't have to remember manual commands.
 
 ---
 
@@ -82,10 +82,10 @@ All repository rules, schema formats, deduplication logic, and automation protoc
 
 ## 🛠️ Repository Scripts
 
-| Script               | Purpose                                                    | Command                                     |
-| :------------------- | :--------------------------------------------------------- | :------------------------------------------ |
-| **Table Prettifier** | Aligns all vertical `\|` pipes across markdown tables      | `python scripts/prettify_tables.py --all`   |
-| **Interview Sync**   | Fetches latest questions from remote repo & updates matrix | `python scripts/sync_interview_coverage.py` |
+| Script                 | Purpose                                                          | Command                                   |
+| :--------------------- | :--------------------------------------------------------------- | :---------------------------------------- |
+| **Table Prettifier**   | Aligns all vertical `\|` pipes across markdown tables            | `python scripts/prettify_tables.py --all` |
+| **Bidirectional Sync** | Synchronizes Dual-Track Coverage & updates INTERVIEW_COVERAGE.md | `python scripts/sync_coverage.py`         |
 
 ---
 

@@ -79,5 +79,5 @@ When the user asks to **"process interview inbox"**, **"process inbox interview"
 - Clear questions processed from `inbox.md` so the dropzone remains ready for the next dump.
 
 ### Step 5: Post-Sync Hook
-- Run `python scripts/sync_interview_coverage.py` to refresh coverage statistics and update `INTERVIEW_COVERAGE.md`.
+- Run `python scripts/sync_coverage.py` to refresh coverage statistics and update `INTERVIEW_COVERAGE.md`.
 
