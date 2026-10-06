@@ -37,3 +37,8 @@
 5. What is Query Transformation (Query Expansion, Multi-Query, Step-Back Prompting, HyDE - Hypothetical Document Embeddings)?
 6. How do you solve the "Lost in the Middle" problem in long context retrieval?
 7. What is Parent-Document Retrieval (Sentence-window retrieval), and how does it decouple the chunk used for embedding from the chunk passed to the LLM?
+8. Why does pure semantic search fail on exact keyword queries (error codes, SKUs, identifiers like `1099-MISC`), and how does Reciprocal Rank Fusion (RRF) with constant $k=60$ normalize dense and sparse rank scores without manual score calibration?
+9. What is the architectural difference between metadata pre-filtering and post-filtering during vector retrieval, and why does post-filtering cause recall collapse under restrictive filters?
+10. Why are cross-encoders computationally infeasible for initial retrieval across 1M documents ($O(N)$ vs $O(1)$ cosine dot-products), and how does a two-stage retrieval pipeline maintain acceptable latency SLAs?
+11. When calibrating a semantic prompt cache with cosine similarity (e.g. threshold $\approx 0.85$), how do you empirically balance hit rate against near-miss false positives, and how do you test for semantic near-miss traps?
+

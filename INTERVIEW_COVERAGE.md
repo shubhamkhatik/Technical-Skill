@@ -1,8 +1,8 @@
 # 🎯 Dual-Track Engineering Coverage & Readiness Dashboard
 
 > **Unified Live Synchronization between [`Technical Skill/`](./Technical%20Skill/TECHNICAL%20SKILL.md) and [`Interview Inspire/`](./Interview%20Inspire/README.md)**  
-> - 🎯 **Question Preparation Readiness:** `25.6%` of tracked interview questions (102/398) have corresponding technical concept notes.
-> - 🧠 **Concept Question Coverage:** `10.9%` of documented technical concepts (63/578) have active interview questions in the bank.
+> - 🎯 **Question Preparation Readiness:** `25.8%` of tracked interview questions (104/403) have corresponding technical concept notes.
+> - 🧠 **Concept Question Coverage:** `11.0%` of documented technical concepts (64/582) have active interview questions in the bank.
 
 ---
 
@@ -15,10 +15,10 @@
 | **DevOps & Cloud**        | 39              | 17                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `43.6%` | 75             | 11               | `14.7%`       | [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)                             | [Practice Bank ↗](./Interview%20Inspire/software-engineering/devops/devops.md)               |
 | **System Design**         | 34              | 17                | 🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ `50.0%` | 91             | 12               | `13.2%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
 | **AI Foundations & Core** | 30              | 1                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `3.3%`  | 18             | 1                | `5.6%`        | [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md)                        | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/foundations/foundations.md)           |
-| **AI - LLM & RAG**        | 22              | 6                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `27.3%` | 12             | 5                | `41.7%`       | [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)   | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md)           |
-| **AI - Agentic AI**       | 19              | 12                | 🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ `63.2%` | 12             | 7                | `58.3%`       | [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md) | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md)             |
+| **AI - LLM & RAG**        | 26              | 7                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `26.9%` | 12             | 5                | `41.7%`       | [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)   | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md)           |
+| **AI - Agentic AI**       | 20              | 13                | 🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ `65.0%` | 13             | 8                | `61.5%`       | [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md) | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md)             |
 | **AI - MLOps & LLMOps**   | 22              | 6                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `27.3%` | 24             | 4                | `16.7%`       | [`LLM Serving & Gateways.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/LLM Serving & Gateways.md)         | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/mlops-llmops/mlops-llmops.md)         |
-| **AI - System Design**    | 10              | 0                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `0.0%`  | 8              | 0                | `0.0%`        | [`AI System Design.md`](./Technical%20Skill/AI Engineering/AI System Design/AI System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/ai-system-design/ai-system-design.md) |
+| **AI - System Design**    | 10              | 0                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `0.0%`  | 11             | 0                | `0.0%`        | [`AI System Design.md`](./Technical%20Skill/AI Engineering/AI System Design/AI System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/ai-system-design/ai-system-design.md) |
 | **DSA**                   | 107             | 5                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `4.7%`  | 18             | 3                | `16.7%`       | [`DSA.md`](./Technical%20Skill/DSA/DSA.md)                                                                                 | [Practice Bank ↗](./Interview%20Inspire/dsa-problem-solving/dsa.md)                          |
 
 ---
@@ -114,7 +114,7 @@
 - [ ] **`Provider Prompt Caching`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - *...and 14 more concepts documented in `AI Engineering/AI Backend Engineering/LLM Serving & Gateways.md`.*
 
-### AI - System Design (8 Concepts without Questions)
+### AI - System Design (11 Concepts without Questions)
 > Documented in: [`AI System Design.md`](./Technical%20Skill/AI Engineering/AI System Design/AI System Design.md) ──► Target Question Checklist: [`ai-system-design.md`](./Interview%20Inspire/ai-engineering/ai-system-design/ai-system-design.md)
 
 - [ ] **`The llms.txt Standard`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
@@ -123,7 +123,7 @@
 - [ ] **`GEO Observability`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Robots.txt / AI Crawler Directives`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Citation & Attribution Tracking`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
-- *...and 2 more concepts documented in `AI Engineering/AI System Design/AI System Design.md`.*
+- *...and 5 more concepts documented in `AI Engineering/AI System Design/AI System Design.md`.*
 
 ### DSA (15 Concepts without Questions)
 > Documented in: [`DSA.md`](./Technical%20Skill/DSA/DSA.md) ──► Target Question Checklist: [`dsa.md`](./Interview%20Inspire/dsa-problem-solving/dsa.md)
@@ -193,7 +193,7 @@
 - [ ] **Python for AI & Data Science**: How does vectorization in NumPy achieve 10x-100x speedup over standard Python loops?
 - *...and 24 more questions in `ai-engineering/foundations/foundations.md`.*
 
-### AI - LLM & RAG (16 Questions without Notes)
+### AI - LLM & RAG (19 Questions without Notes)
 > Question source: [`llm-and-rag.md`](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md) ──► Destination Note: [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)
 
 - [ ] **Large Language Models (LLM) Fundamentals**: What is the pre-training objective of modern decoder-only LLMs (Causal Language Modeling / Next Token Prediction)?
@@ -201,7 +201,7 @@
 - [ ] **Large Language Models (LLM) Fundamentals**: What is the KV Cache in Transformer inference? How does it save redundant computation during autoregressive generation?
 - [ ] **Large Language Models (LLM) Fundamentals**: What is the Context Window, and what challenges arise with "needle-in-a-haystack" retrieval as context lengths grow to 1M+ tokens?
 - [ ] **Large Language Models (LLM) Fundamentals**: What are the key stages of training an LLM: Pre-training, Supervised Fine-Tuning (SFT), and Alignment (RLHF / DPO)?
-- *...and 11 more questions in `ai-engineering/llm-and-rag/llm-and-rag.md`.*
+- *...and 14 more questions in `ai-engineering/llm-and-rag/llm-and-rag.md`.*
 
 ### AI - Agentic AI (7 Questions without Notes)
 > Question source: [`agentic-ai.md`](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md) ──► Destination Note: [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md)

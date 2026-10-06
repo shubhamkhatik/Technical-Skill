@@ -16,6 +16,7 @@
 2. How do you provide JSON Schemas for tools, and what happens when an LLM hallucinate invalid parameters or types?
 3. How do you implement Parallel Tool Calling, and how do you handle partial failures when executing multiple tools?
 4. How do you design "Human-in-the-Loop" approvals for high-stakes or destructive tool actions (e.g. database deletes, payments, emails)?
+5. In a streaming agent architecture, how do you handle partial JSON fragmentation when streaming tool calls without triggering premature or incomplete tool execution?
 
 ---
 
