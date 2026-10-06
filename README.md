@@ -1,7 +1,7 @@
 # 🚀 Technical Skill — Engineering Knowledge Base & Automated Ingestion System
 
 > **A curated, production-grade engineering reference library and automated learning-to-table system.**  
-> Built for zero prose clutter, strict markdown table schemas, evergreen concept enrichment, and seamless interview readiness tracking with [`shubhamkhatik/Interview-Inspire`](https://github.com/shubhamkhatik/Interview-Inspire).
+> Built for zero prose clutter, strict markdown table schemas, evergreen concept enrichment, and seamless interview readiness tracking with Interview Questions
 
 ---
 

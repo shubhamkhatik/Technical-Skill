@@ -28,10 +28,7 @@ A curated, production-grade repository of interview questions across **Software 
 
 ---
 
-### 📝 [Interview Experiences](interview-experiences/)
-- **[Real-World Interview Experiences](interview-experiences/)** — Actual interview rounds, technical quizzes, and machine coding problems.
 
----
 
 ## 📥 How to Add Questions Automatically
 

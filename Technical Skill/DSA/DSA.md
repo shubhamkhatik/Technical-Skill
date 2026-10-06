@@ -1,6 +1,6 @@
 # Data Structures & Algorithms (DSA) Patterns
 
-> 🎯 **Interview Practice:** Practice curated DSA questions and algorithm problems in [Interview-Inspire: DSA Problem Bank](https://github.com/shubhamkhatik/Interview-Inspire/blob/main/dsa-problem-solving/dsa.md)
+> 🎯 **Interview Practice:** Practice curated DSA questions and algorithm problems in [DSA Problem Bank](../../Interview%20Inspire/dsa-problem-solving/dsa.md)
 
 ---
 
