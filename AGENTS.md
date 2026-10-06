@@ -57,7 +57,8 @@ When the user says **"Process inbox"** (or pastes content directly), automatical
 ### Route A: Technical Skill (`Technical Skill/AGENTS.md`)
 - **When**: Learning notes, architecture concepts, documentation requests, or concept entries in `inbox.md`.
 - **Target**: `Technical Skill/` subdirectories (`Frontend/`, `Backend/`, `DevOps for Developers/`, `AI Engineering/`, etc.).
-- **Rule**: Strict reference tables only (Zero prose clutter, mandatory file grounding, enrichment diff mode for existing concepts).
+- **Rule**: Condensed reference summaries only (Not an exhaustive textbook; 1–2 punchy sentences per cell; zero prose clutter; mandatory file grounding; enrichment diff mode for existing concepts).
+
 
 ### Route B: Interview Inspire (`Interview Inspire/AGENTS.md`)
 - **When**: Interview questions, problem bank dumps, interview experiences, or question entries in `inbox.md`.

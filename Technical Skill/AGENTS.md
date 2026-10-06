@@ -76,9 +76,14 @@ Automatically detect the appropriate file and section based on topic keywords (e
 
 ## 4. Markdown Table Construction & Strict Rules
 
-### Fundamental Rule: Tables Only, Zero Prose Clutter
-- **DO NOT** add prose paragraphs, essays, study notes, or answer explanations above or below the tables.
-- The files are strictly curated **reference tables**. Every piece of learning must be condensed into the appropriate table row.
+### Fundamental Rule: High-Yield Summaries Only (Not a Detailed Textbook)
+- **Summarized Learning, Zero Bloat**: This repository is a **condensed quick-reference summary of what the user learned**, NOT an encyclopedic deep-dive, tutorial, or detailed textbook.
+- **Punchy & High-Signal**: Every table cell must be concise, crisp, and readable at a glance:
+  - **Core Concepts & Mental Model**: 1–2 punchy sentences capturing the core intuition and mechanism.
+  - **Tools & Libraries**: Curated canonical and modern production tools only.
+  - **Key Techniques**: Core architectural patterns without step-by-step tutorial paragraphs.
+  - **Tradeoffs & Failure Modes**: 1–2 high-yield `✅` pros and `❌` critical failure modes/bottlenecks.
+- **Zero Prose Clutter**: **DO NOT** add prose paragraphs, essays, study notes, or conversational explanations above or below the tables. Everything belongs strictly inside the structured table rows.
 
 ### Context-Adaptive Table Schemas:
 1. **Rule of Existing Context**:

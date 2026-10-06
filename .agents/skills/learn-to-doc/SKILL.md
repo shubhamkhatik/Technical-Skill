@@ -48,13 +48,15 @@ Trigger this skill whenever the user says:
   - Fill all standard canonical patterns under the topic.
 
 ### 4. Render Table Preview
-- **Strict Rule**: Zero prose notes or answer dumps outside tables. Everything goes into the table row.
+- **Strict Rule: Tables Only, Zero Prose Clutter**: Everything goes strictly into the table row. Zero prose paragraphs outside tables.
+- **Summarized Learning Reference (Not a Detailed Textbook)**: Keep cells crisp, punchy, and readable at a glance (1–2 sentences for mental models, canonical tools only, core practical techniques, 1–2 key tradeoffs `✅`/`❌`). Never output bloated textbook explanations.
 - **Context-Adaptive Schemas**:
   - **Rule of Existing Context**: If target section already has a table, always match its exact columns.
   - **System Design & Architectural Topics** (API design, protocols, caching, databases, sharding, auth): 6 columns including `Tradeoffs & Failure Modes` (`✅` pros, `❌` pitfalls).
   - **Core Tech & Syntax Basics** (React hooks, CSS, HTML, TS syntax): 5-column focused schema (`Skill | Core Concepts | Tools & Libraries | Key Techniques | Resources`).
   - **DevOps & Cloud**: 5 columns with `Key Commands & Techniques` and `Tradeoffs & Failure Modes`.
 - **Resource Priority**: MDN/official docs first; authoritative guides second.
+
 
 ### 5. Append & Reset Dropzone
 - Upon user confirmation, append rows into the target table before section breaks (`---` or next `##`).
