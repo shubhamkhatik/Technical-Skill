@@ -7,13 +7,27 @@
 
 ## 1. Repository Purpose & Architecture
 
-This section is a curated, high-yield question bank for technical interviews across **Software Engineering**, **AI Engineering**, and **Data Structures & Algorithms**.
+This repository is a curated, high-yield **Question Bank** for technical interviews across **Software Engineering**, **AI Engineering**, and **Data Structures & Algorithms**.
 
-### Core Rule: Questions-Only Format
-Files in this repository are **question checklists**, NOT textbooks.
-- **DO NOT** add essays, answers, explanations, or code solutions into the question files unless explicitly asked.
-- **DO** format code keywords, APIs, and types with backticks (e.g. `useMemo`, `Promise.all()`, `pgvector`, `cgroups`).
-- **DO** use clean numbered lists under `## Headings`.
+### Core Formatting Principles:
+1. **Questions-Only Format**:
+   - **DO NOT** add essays, answers, explanations, or code solutions into question checklist files.
+   - **DO** format code keywords, APIs, and types with backticks (e.g. `useMemo`, `Promise.all()`, `pgvector`, `cgroups`).
+   - **DO** use clean numbered lists under `## Headings`.
+2. **Round Prefix Convention (`**[Round]**`)**:
+   - Every question must be prefixed with a bold tag indicating the round type to immediately prime the candidate's mindset:
+     - `**[Core Concept]**`: Fundamentals, definitions, mental models, basic behavior.
+     - `**[Technical Deep Dive]**`: Internals, runtime mechanics, edge cases, profiling, memory leaks, performance traps.
+     - `**[Machine Coding]**`: Hands-on implementation, custom components, polyfills, utility functions, algorithms.
+     - `**[System Design]**`: High-level/low-level architectures, data flow, protocols, state strategies, scale tradeoffs.
+     - `**[Behavioral / HM]**`: Leadership, ownership, handling blockers, cross-functional conflicts, technical trade-offs.
+3. **Heading & File Creation Autonomy**:
+   - The agent has full authority to:
+     - Match an existing `## Heading`.
+     - Dynamically create a new `## Heading` or `### Sub-heading` if a category is missing or too coarse.
+     - **Create a new separate markdown file** within `Interview Inspire/` (e.g. `software-engineering/behavioral/behavioral.md` or a new track) if questions do not cleanly belong in an existing file.
+4. **Unified Question Bank (No Loose Logs)**:
+   - All questions extracted from interview experiences, videos, or raw dumps must be ingested directly into the appropriate checklist files with `**[Round]**` tags rather than stored as isolated notes.
 
 ---
 
@@ -63,17 +77,19 @@ When the user asks to **"process interview inbox"**, **"process inbox interview"
 ### Step 1: Read & Parse
 - Read raw questions from `inbox.md` (below `<!-- PASTE RAW NOTES, TOPICS, OR INTERVIEW QUESTIONS BELOW THIS LINE -->`) or directly from the user's prompt.
 
-### Step 2: Classify & Deduplicate
+### Step 2: Classify, Target & Deduplicate
 - For each question:
   1. Determine the best matching target file in `Interview Inspire/`.
-  2. Inspect the target file to check if the question already exists. **SKIP any duplicate questions**.
-  3. Determine the section:
+  2. If the question represents a domain or track without a file (e.g. Behavioral / HM), **create a new markdown file** with standard headers.
+  3. Inspect the target file to check if the question already exists. **SKIP any duplicate questions**.
+  4. Determine the section:
      - Match existing `## Heading`.
      - Or create a clean new `## Heading` or `### Sub-heading` dynamically.
 
-### Step 3: Append & Number
-- Insert the new question under the heading, continuing the sequential numbering (`1. `, `2. `, etc.).
-- Keep the clean checklist format without answers or explanations.
+### Step 3: Prefix & Append
+- Prefix every question with its standard round tag: `**[Core Concept]**`, `**[Technical Deep Dive]**`, `**[Machine Coding]**`, `**[System Design]**`, or `**[Behavioral / HM]**`.
+- Insert the question under the heading, continuing sequential numbering (`1. `, `2. `, etc.).
+- Maintain strict questions-only checklists without answers or essays.
 
 ### Step 4: Reset `inbox.md`
 - Clear questions processed from `inbox.md` so the dropzone remains ready for the next dump.

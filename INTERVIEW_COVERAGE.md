@@ -1,25 +1,26 @@
 # 🎯 Dual-Track Engineering Coverage & Readiness Dashboard
 
 > **Unified Live Synchronization between [`Technical Skill/`](./Technical%20Skill/TECHNICAL%20SKILL.md) and [`Interview Inspire/`](./Interview%20Inspire/README.md)**  
-> - 🎯 **Question Preparation Readiness:** `25.8%` of tracked interview questions (104/403) have corresponding technical concept notes.
-> - 🧠 **Concept Question Coverage:** `11.0%` of documented technical concepts (64/582) have active interview questions in the bank.
+> - 🎯 **Question Preparation Readiness:** `25.9%` of tracked interview questions (110/425) have corresponding technical concept notes.
+> - 🧠 **Concept Question Coverage:** `11.7%` of documented technical concepts (68/582) have active interview questions in the bank.
 
 ---
 
 ## 📊 Domain-by-Domain Scorecard
 
-| Track / Domain            | Questions Total | Questions Covered | Q Score            | Concepts Total | Concepts with Qs | Concept Score | Primary Notes                                                                                                              | Question Bank Link                                                                           |
-| :------------------------ | :-------------: | :---------------: | :----------------: | :------------: | :--------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| **Frontend Engineering**  | 72              | 23                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `31.9%` | 212            | 10               | `4.7%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
-| **Backend Engineering**   | 43              | 15                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.9%` | 108            | 10               | `9.3%`        | [`Backend.md`](./Technical%20Skill/Backend/Backend.md)                                                                     | [Practice Bank ↗](./Interview%20Inspire/software-engineering/backend/backend.md)             |
-| **DevOps & Cloud**        | 39              | 17                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `43.6%` | 75             | 11               | `14.7%`       | [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)                             | [Practice Bank ↗](./Interview%20Inspire/software-engineering/devops/devops.md)               |
-| **System Design**         | 34              | 17                | 🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ `50.0%` | 91             | 12               | `13.2%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
-| **AI Foundations & Core** | 30              | 1                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `3.3%`  | 18             | 1                | `5.6%`        | [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md)                        | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/foundations/foundations.md)           |
-| **AI - LLM & RAG**        | 26              | 7                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `26.9%` | 12             | 5                | `41.7%`       | [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)   | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md)           |
-| **AI - Agentic AI**       | 20              | 13                | 🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ `65.0%` | 13             | 8                | `61.5%`       | [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md) | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md)             |
-| **AI - MLOps & LLMOps**   | 22              | 6                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `27.3%` | 24             | 4                | `16.7%`       | [`LLM Serving & Gateways.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/LLM Serving & Gateways.md)         | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/mlops-llmops/mlops-llmops.md)         |
-| **AI - System Design**    | 10              | 0                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `0.0%`  | 11             | 0                | `0.0%`        | [`AI System Design.md`](./Technical%20Skill/AI Engineering/AI System Design/AI System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/ai-system-design/ai-system-design.md) |
-| **DSA**                   | 107             | 5                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `4.7%`  | 18             | 3                | `16.7%`       | [`DSA.md`](./Technical%20Skill/DSA/DSA.md)                                                                                 | [Practice Bank ↗](./Interview%20Inspire/dsa-problem-solving/dsa.md)                          |
+| Track / Domain              | Questions Total | Questions Covered | Q Score            | Concepts Total | Concepts with Qs | Concept Score | Primary Notes                                                                                                              | Question Bank Link                                                                           |
+| :-------------------------- | :-------------: | :---------------: | :----------------: | :------------: | :--------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
+| **Frontend Engineering**    | 85              | 29                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.1%` | 212            | 14               | `6.6%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
+| **Backend Engineering**     | 43              | 15                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.9%` | 108            | 10               | `9.3%`        | [`Backend.md`](./Technical%20Skill/Backend/Backend.md)                                                                     | [Practice Bank ↗](./Interview%20Inspire/software-engineering/backend/backend.md)             |
+| **DevOps & Cloud**          | 39              | 17                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `43.6%` | 75             | 11               | `14.7%`       | [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)                             | [Practice Bank ↗](./Interview%20Inspire/software-engineering/devops/devops.md)               |
+| **System Design**           | 34              | 17                | 🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ `50.0%` | 91             | 12               | `13.2%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
+| **AI Foundations & Core**   | 30              | 1                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `3.3%`  | 18             | 1                | `5.6%`        | [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md)                        | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/foundations/foundations.md)           |
+| **AI - LLM & RAG**          | 26              | 7                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `26.9%` | 12             | 5                | `41.7%`       | [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)   | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md)           |
+| **AI - Agentic AI**         | 20              | 13                | 🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ `65.0%` | 13             | 8                | `61.5%`       | [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md) | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md)             |
+| **AI - MLOps & LLMOps**     | 22              | 6                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `27.3%` | 24             | 4                | `16.7%`       | [`LLM Serving & Gateways.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/LLM Serving & Gateways.md)         | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/mlops-llmops/mlops-llmops.md)         |
+| **AI - System Design**      | 10              | 0                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `0.0%`  | 11             | 0                | `0.0%`        | [`AI System Design.md`](./Technical%20Skill/AI Engineering/AI System Design/AI System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/ai-system-design/ai-system-design.md) |
+| **DSA**                     | 108             | 5                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `4.6%`  | 18             | 3                | `16.7%`       | [`DSA.md`](./Technical%20Skill/DSA/DSA.md)                                                                                 | [Practice Bank ↗](./Interview%20Inspire/dsa-problem-solving/dsa.md)                          |
+| **Behavioral & Leadership** | 8               | 0                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `0.0%`  | 0              | 0                | `0.0%`        | [``](./Technical%20Skill/)                                                                                                 | [Practice Bank ↗](./Interview%20Inspire/software-engineering/behavioral/behavioral.md)       |
 
 ---
 
@@ -28,7 +29,7 @@
 > **Actionable Opportunity**: These concepts are documented in your `Technical Skill/` reference tables, but currently have **0 interview questions** in `Interview Inspire/`.
 > 👉 *When reviewing these, use the AI agent's **Top 5 Question Generator** archetype to populate questions for them!*
 
-### Frontend Engineering (202 Concepts without Questions)
+### Frontend Engineering (198 Concepts without Questions)
 > Documented in: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md) ──► Target Question Checklist: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md)
 
 - [ ] **`CSS / SASS`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
@@ -37,7 +38,7 @@
 - [ ] **`Authentication`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Frontend Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`HTTPS & Cookie Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
-- *...and 196 more concepts documented in `Frontend/Frontend.md`.*
+- *...and 192 more concepts documented in `Frontend/Frontend.md`.*
 
 ### Backend Engineering (98 Concepts without Questions)
 > Documented in: [`Backend.md`](./Technical%20Skill/Backend/Backend.md) ──► Target Question Checklist: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md)
@@ -143,15 +144,15 @@
 > **Actionable Opportunity**: These interview questions exist in `Interview Inspire/`, but do not yet have dedicated reference table entries in `Technical Skill/`.
 > 👉 *Copy any question below into [`inbox.md`](./inbox.md) and ask the AI agent to draft reference table rows!*
 
-### Frontend Engineering (49 Questions without Notes)
+### Frontend Engineering (56 Questions without Notes)
 > Question source: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md) ──► Destination Note: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)
 
-- [ ] **HTML & Web Fundamentals**: How do you handle responsive image loading in modern web apps?
-- [ ] **HTML & Web Fundamentals**: How do you architect an application for multiple devices (responsive design, media queries, relative units, progressive enhancement)?
-- [ ] **CSS & Layouts**: What is the difference between `display: none` and `visibility: hidden`?
-- [ ] **CSS & Layouts**: Explain CSS Box Model (content, padding, border, margin) and `box-sizing: border-box`.
-- [ ] **CSS & Layouts**: Flexbox vs. CSS Grid: When would you use one over the other?
-- *...and 44 more questions in `software-engineering/frontend/frontend.md`.*
+- [ ] **HTML & Web Fundamentals**: **[Core Concept]** How do you handle responsive image loading in modern web apps?
+- [ ] **HTML & Web Fundamentals**: **[Core Concept]** How do you architect an application for multiple devices (responsive design, media queries, relative units, progressive enhancement)?
+- [ ] **HTML & Web Fundamentals**: **[Core Concept]** What is the difference between `keydown`, `keypress`, and `keyup` events, and what is the exact execution sequence when a key is pressed?
+- [ ] **CSS & Layouts**: **[Core Concept]** What is the difference between `display: none` and `visibility: hidden`?
+- [ ] **CSS & Layouts**: **[Core Concept]** Explain CSS Box Model (content, padding, border, margin) and `box-sizing: border-box`.
+- *...and 51 more questions in `software-engineering/frontend/frontend.md`.*
 
 ### Backend Engineering (28 Questions without Notes)
 > Question source: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md) ──► Destination Note: [`Backend.md`](./Technical%20Skill/Backend/Backend.md)
@@ -233,7 +234,7 @@
 - [ ] **Architecture Principles for Enterprise AI Systems**: How do you design streaming architectures (SSE / WebSockets) to provide instant Time-to-First-Token (TTFT) perceived latency to users?
 - *...and 5 more questions in `ai-engineering/ai-system-design/ai-system-design.md`.*
 
-### DSA (102 Questions without Notes)
+### DSA (103 Questions without Notes)
 > Question source: [`dsa.md`](./Interview%20Inspire/dsa-problem-solving/dsa.md) ──► Destination Note: [`DSA.md`](./Technical%20Skill/DSA/DSA.md)
 
 - [ ] **String-Based Questions**: Reverse a string — without using built-ins.
@@ -241,7 +242,17 @@
 - [ ] **String-Based Questions**: Remove duplicates from a string — efficiently.
 - [ ] **String-Based Questions**: First non-repeating character — who stands alone?
 - [ ] **String-Based Questions**: Count how many times each character appears.
-- *...and 97 more questions in `dsa-problem-solving/dsa.md`.*
+- *...and 98 more questions in `dsa-problem-solving/dsa.md`.*
+
+### Behavioral & Leadership (8 Questions without Notes)
+> Question source: [`behavioral.md`](./Interview%20Inspire/software-engineering/behavioral/behavioral.md) ──► Destination Note: [``](./Technical%20Skill/)
+
+- [ ] **Ownership & Delivering Under Deadlines**: **[Behavioral / HM]** How do you handle strict deadlines when backend API dependencies or contracts are delayed or changing?
+- [ ] **Ownership & Delivering Under Deadlines**: **[Behavioral / HM]** Describe a high-stakes production incident or outage you were involved with: how did you troubleshoot, communicate, and prevent recurrence?
+- [ ] **Ownership & Delivering Under Deadlines**: **[Behavioral / HM]** Tell me about a time you had to push back on product management regarding unrealistic timelines or accumulating technical debt.
+- [ ] **Technical Leadership, Mentorship & Code Standards**: **[Behavioral / HM]** Describe an instance where you mentored a junior engineer or improved team-wide engineering practices (code reviews, testing standards, CI/CD).
+- [ ] **Technical Leadership, Mentorship & Code Standards**: **[Behavioral / HM]** How do you handle strong technical disagreements with peers regarding architecture or framework selection?
+- *...and 3 more questions in `software-engineering/behavioral/behavioral.md`.*
 
 ---
 
@@ -249,21 +260,21 @@
 
 | Domain                   | Question from Interview Inspire                                                | Matched Concept in Technical Skill | Practice Link                                                                     |
 | :----------------------- | :----------------------------------------------------------------------------- | :--------------------------------- | :-------------------------------------------------------------------------------- |
-| **Frontend Engineering** | What are Semantic HTML elements and why should you use them over non-semant... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What is `srcset` in HTML and how does it compare to the `<picture>` element... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What are Web Components (Custom Elements, Shadow DOM, HTML Templates)?         | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What are Service Workers, Web Workers, and Progressive Web Apps (PWAs)?        | `Progressive Web Apps`             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What does the `new` operator do in JavaScript internally step-by-step?         | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What is the difference between `Map` and `Object` in JavaScript? When shoul... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What is the difference between Prototypal and Classical Inheritance in Java... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | How does JavaScript handle asynchronous operations? What mechanisms does it... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | How do we apply Object-Oriented Programming (OOP) and SOLID principles in J... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | Difference between `any`, `unknown` and `never` in TypeScript?                 | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | Explain enum/String enum in TypeScript?                                        | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What is casting in TypeScript?                                                 | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What is public, private and protected in TypeScript classes?                   | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | What are Generics in TypeScript? Give examples in functions, classes and ty... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | Which is better for SEO — React, Next.js, or any other library? Why?           | `React.js`                         | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What are Semantic HTML elements and why should you use t... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What is `srcset` in HTML and how does it compare to the ... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What are Web Components (Custom Elements, Shadow DOM, HT... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What are Service Workers, Web Workers, and Progressive W... | `Progressive Web Apps`             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Technical Deep Dive]** What does the `new` operator do in JavaScript int... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What is the difference between `Map` and `Object` in Jav... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What is the difference between Prototypal and Classical ... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** How does JavaScript handle asynchronous operations? What... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** How do we apply Object-Oriented Programming (OOP) and SO... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Technical Deep Dive]** What does `typeof` return on rest parameters `(..... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** Difference between `any`, `unknown` and `never` in TypeS... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** Explain enum/String enum in TypeScript?                     | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What is casting in TypeScript?                              | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Core Concept]** What is public, private and protected in TypeScript clas... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | **[Technical Deep Dive]** What are Generics in TypeScript? Give examples in... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
 
 ---
 

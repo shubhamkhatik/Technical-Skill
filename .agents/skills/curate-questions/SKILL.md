@@ -31,18 +31,27 @@ Trigger this skill whenever the user says:
   - `Interview Inspire/dsa-problem-solving/dsa.md`
   - `Interview Inspire/interview-experiences/`
 
-### 2. Mandatory Grounding & Deduplication (Read First)
+### 2. Mandatory Grounding, Dynamic Headings & File Creation
 - **Inspect Target File**: Open and read the relevant section in the target file using `view_file`.
 - **Deduplicate**: Check existing numbered questions under the matching `## Heading`. Skip any question that is already present.
-- **Section Selection**:
-  - Identify the appropriate existing `## Heading` or `### Sub-heading`.
-  - If no matching heading exists, propose a clean, canonical heading.
+- **Section & File Autonomy**:
+  - Match the appropriate existing `## Heading` or `### Sub-heading`.
+  - Create a new `## Heading` or `### Sub-heading` dynamically if missing or coarse.
+  - Create a **new markdown file** if a new track/category (e.g. behavioral questions) lacks a target.
 
-### 3. Format as Strict Question Checklists
+### 3. Format as Strict Question Checklists with Round Prefixes
+- **Mandatory Round Prefix (`**[Round]**`)**:
+  - Every question must begin with its bold round tag:
+    - `**[Core Concept]**`
+    - `**[Technical Deep Dive]**`
+    - `**[Machine Coding]**`
+    - `**[System Design]**`
+    - `**[Behavioral / HM]**`
 - **Strict Rule: Questions Only**:
   - **Zero Answers**: No solutions, essays, explanations, or code blocks in question checklists.
   - **Keyword Formatting**: Wrap code keywords, APIs, and types in backticks (e.g., `useMemo`, `Promise.all()`, `pgvector`, `cgroups`).
   - **Sequential Numbering**: Continue the numbered list sequentially (`1. `, `2. `, etc.).
+
 
 ### 4. Append & Reset Dropzone
 - Append the curated questions under the target section in the file.

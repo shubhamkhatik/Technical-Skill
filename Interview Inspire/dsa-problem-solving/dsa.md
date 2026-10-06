@@ -94,6 +94,7 @@
 5. Daily Temperatures.
 6. Largest Rectangle in Histogram.
 7. Evaluate Reverse Polish Notation (RPN).
+8. Evaluate a mathematical expression string containing parentheses and basic operators (`+`, `-`, `*`, `/`) using operator and operand stacks (Basic Calculator III).
 
 ---
 

@@ -91,7 +91,12 @@ TRACK_MAPPING = {
             "DSA/DSA.md",
         ],
     },
+    "Behavioral & Leadership": {
+        "remote_file": "software-engineering/behavioral/behavioral.md",
+        "local_files": [],
+    },
 }
+
 
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/shubhamkhatik/Interview-Inspire/main"
 GITHUB_REPO_BASE = "https://github.com/shubhamkhatik/Interview-Inspire/blob/main"
@@ -328,7 +333,7 @@ def generate_bidirectional_report(repo_root: str) -> str:
             "c_covered": domain_concepts_with_q,
             "c_pct": c_pct,
             "remote_rel": remote_rel,
-            "primary_local": local_files[0],
+            "primary_local": local_files[0] if local_files else "",
         })
 
         # Track A Gaps: Orphan Concepts (Concepts in Technical Skill with 0 questions)
@@ -337,7 +342,7 @@ def generate_bidirectional_report(repo_root: str) -> str:
             orphan_concepts_checklist.append({
                 "domain": domain,
                 "remote_rel": remote_rel,
-                "primary_local": local_files[0],
+                "primary_local": local_files[0] if local_files else "",
                 "orphans": orphans[:6], # Top 6
                 "total_orphans": len(orphans),
             })
@@ -348,10 +353,11 @@ def generate_bidirectional_report(repo_root: str) -> str:
             uncovered_questions_checklist.append({
                 "domain": domain,
                 "remote_rel": remote_rel,
-                "primary_local": local_files[0],
+                "primary_local": local_files[0] if local_files else "",
                 "gaps": uncovered_q[:5],
                 "total_gaps": len(uncovered_q),
             })
+
 
     overall_q_pct = (total_questions_covered / total_questions_all * 100) if total_questions_all > 0 else 0
     overall_c_pct = (total_concepts_with_q / total_concepts_all * 100) if total_concepts_all > 0 else 0
