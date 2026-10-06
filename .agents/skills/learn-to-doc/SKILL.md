@@ -62,7 +62,7 @@ Trigger this skill whenever the user says:
 
 ### 6. Format & Coverage Sync
 - Run `python scripts/prettify_tables.py <target_file>` to ensure vertical column pipe alignment.
-- Run `python scripts/sync_interview_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](file:///g:/study/Doc-Update/Technical%20Skill/INTERVIEW_COVERAGE.md).
+- Run `python scripts/sync_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](../../../INTERVIEW_COVERAGE.md).
 
 ### 7. 🔄 2-Way Cross-Linking Bridge (Interview Inspire)
 - For every documented or enriched concept (e.g. *WebSockets*, *Redis*, *RAG*):

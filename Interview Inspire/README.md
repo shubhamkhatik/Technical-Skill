@@ -35,8 +35,9 @@ A curated, production-grade repository of interview questions across **Software 
 
 ## 📥 How to Add Questions Automatically
 
-1. **On Laptop / IDE**: Paste raw questions into [inbox.md](inbox.md) and ask the IDE to *"Process inbox"*, or run:
+1. **On Laptop / IDE**: Paste raw questions into [inbox.md](../inbox.md) and ask the IDE to *"Process inbox"*, or run:
    ```bash
    python scripts/process_questions.py
    ```
 2. **On Mobile**: Open GitHub in your mobile browser or app, create a **New Issue**, and paste the questions. The GitHub Actions bot will sort and commit them to the repository automatically.
+

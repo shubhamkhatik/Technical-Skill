@@ -49,7 +49,8 @@ Trigger this skill whenever the user says:
 - If processed from `inbox.md`, clear the processed questions from `inbox.md`.
 
 ### 5. Coverage Refresh
-- Run `python scripts/sync_interview_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](file:///g:/study/Doc-Update/Technical%20Skill/INTERVIEW_COVERAGE.md).
+- Run `python scripts/sync_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](../../../INTERVIEW_COVERAGE.md).
+
 
 ### 6. 🔄 2-Way Cross-Linking Bridge (Technical Skill)
 - Check whether the core concept underlying the new questions exists in `Technical Skill/`.
