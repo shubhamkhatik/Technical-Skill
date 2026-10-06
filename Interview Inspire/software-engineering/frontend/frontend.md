@@ -121,3 +121,17 @@
    - Client state architecture: Server-state caching and deduplication (TanStack Query / SWR) vs Global client store (Redux Toolkit / Zustand).
    - Pagination vs Infinite scrolling: Tradeoffs for financial audit logs, state restoration, and scroll position anchoring.
    - Accessibility (a11y) for dynamic feeds: Utilizing ARIA live regions (`aria-live="polite"` vs `"assertive"`, `aria-atomic`) so assistive technologies announce incoming transactions without disrupting screen reader navigation.
+2. **[System Design]** **Design an Enterprise Microfrontend Architecture (Independent Team Deployments)**:
+   - Architecture & integration approaches: Webpack 5 `Module Federation` vs `iframes` vs `Web Components` (Custom Elements / Shadow DOM) vs Build-time package composition.
+   - Shared dependencies: Singleton management for `React` and `ReactDOM`, handling version mismatches, and peer dependency federation.
+   - Inter-microfrontend communication: Custom Events (`window.dispatchEvent`), shared event emitters, URL/query params, and centralized routing.
+   - Isolation & resilience: CSS namespace scoping, independent CI/CD deployment pipelines, and error boundaries protecting the host container from remote runtime crashes.
+
+---
+
+## Web Security (Client & Full-Stack)
+1. **[Core Concept]** How do you protect React applications against Cross-Site Scripting (XSS) when using `dangerouslySetInnerHTML`, and how does JSX automatically sanitize interpolated variables?
+2. **[Technical Deep Dive]** In a React + Node.js application, where should authentication tokens (JWT access & refresh tokens) be stored, and why are `HttpOnly`, `Secure`, `SameSite=Strict` cookies superior to `localStorage` or `sessionStorage`?
+3. **[Technical Deep Dive]** How do you protect against Cross-Site Request Forgery (CSRF) in Single Page Applications (SPA) communicating with Node.js APIs (Double-Submit Cookie pattern vs anti-CSRF tokens vs `SameSite` attribute)?
+4. **[Technical Deep Dive]** What HTTP security headers should a Node.js/Express backend enforce using `helmet` (`Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Strict-Transport-Security`)?
+

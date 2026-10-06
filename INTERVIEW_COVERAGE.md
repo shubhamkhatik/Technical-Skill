@@ -1,8 +1,8 @@
 # 🎯 Dual-Track Engineering Coverage & Readiness Dashboard
 
 > **Unified Live Synchronization between [`Technical Skill/`](./Technical%20Skill/TECHNICAL%20SKILL.md) and [`Interview Inspire/`](./Interview%20Inspire/README.md)**  
-> - 🎯 **Question Preparation Readiness:** `25.9%` of tracked interview questions (110/425) have corresponding technical concept notes.
-> - 🧠 **Concept Question Coverage:** `11.7%` of documented technical concepts (68/582) have active interview questions in the bank.
+> - 🎯 **Question Preparation Readiness:** `26.8%` of tracked interview questions (117/437) have corresponding technical concept notes.
+> - 🧠 **Concept Question Coverage:** `12.4%` of documented technical concepts (72/582) have active interview questions in the bank.
 
 ---
 
@@ -10,10 +10,10 @@
 
 | Track / Domain              | Questions Total | Questions Covered | Q Score            | Concepts Total | Concepts with Qs | Concept Score | Primary Notes                                                                                                              | Question Bank Link                                                                           |
 | :-------------------------- | :-------------: | :---------------: | :----------------: | :------------: | :--------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| **Frontend Engineering**    | 85              | 29                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.1%` | 212            | 14               | `6.6%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
-| **Backend Engineering**     | 43              | 15                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.9%` | 108            | 10               | `9.3%`        | [`Backend.md`](./Technical%20Skill/Backend/Backend.md)                                                                     | [Practice Bank ↗](./Interview%20Inspire/software-engineering/backend/backend.md)             |
+| **Frontend Engineering**    | 90              | 33                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `36.7%` | 212            | 17               | `8.0%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
+| **Backend Engineering**     | 47              | 17                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `36.2%` | 108            | 10               | `9.3%`        | [`Backend.md`](./Technical%20Skill/Backend/Backend.md)                                                                     | [Practice Bank ↗](./Interview%20Inspire/software-engineering/backend/backend.md)             |
 | **DevOps & Cloud**          | 39              | 17                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `43.6%` | 75             | 11               | `14.7%`       | [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)                             | [Practice Bank ↗](./Interview%20Inspire/software-engineering/devops/devops.md)               |
-| **System Design**           | 34              | 17                | 🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ `50.0%` | 91             | 12               | `13.2%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
+| **System Design**           | 37              | 18                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `48.6%` | 91             | 13               | `14.3%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
 | **AI Foundations & Core**   | 30              | 1                 | ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ `3.3%`  | 18             | 1                | `5.6%`        | [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md)                        | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/foundations/foundations.md)           |
 | **AI - LLM & RAG**          | 26              | 7                 | 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ `26.9%` | 12             | 5                | `41.7%`       | [`RAG & Vector Architecture.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/RAG & Vector Architecture.md)   | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/llm-and-rag/llm-and-rag.md)           |
 | **AI - Agentic AI**         | 20              | 13                | 🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ `65.0%` | 13             | 8                | `61.5%`       | [`Agentic AI & Orchestration.md`](./Technical%20Skill/AI Engineering/AI Backend Engineering/Agentic AI & Orchestration.md) | [Practice Bank ↗](./Interview%20Inspire/ai-engineering/agentic-ai/agentic-ai.md)             |
@@ -29,7 +29,7 @@
 > **Actionable Opportunity**: These concepts are documented in your `Technical Skill/` reference tables, but currently have **0 interview questions** in `Interview Inspire/`.
 > 👉 *When reviewing these, use the AI agent's **Top 5 Question Generator** archetype to populate questions for them!*
 
-### Frontend Engineering (198 Concepts without Questions)
+### Frontend Engineering (195 Concepts without Questions)
 > Documented in: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md) ──► Target Question Checklist: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md)
 
 - [ ] **`CSS / SASS`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
@@ -38,7 +38,7 @@
 - [ ] **`Authentication`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Frontend Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`HTTPS & Cookie Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
-- *...and 192 more concepts documented in `Frontend/Frontend.md`.*
+- *...and 189 more concepts documented in `Frontend/Frontend.md`.*
 
 ### Backend Engineering (98 Concepts without Questions)
 > Documented in: [`Backend.md`](./Technical%20Skill/Backend/Backend.md) ──► Target Question Checklist: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md)
@@ -62,7 +62,7 @@
 - [ ] **`SSH`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - *...and 58 more concepts documented in `DevOps for Developers/DevOps for Developer.md`.*
 
-### System Design (79 Concepts without Questions)
+### System Design (78 Concepts without Questions)
 > Documented in: [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md) ──► Target Question Checklist: [`system-design.md`](./Interview%20Inspire/software-engineering/system-design/system-design.md)
 
 - [ ] **`Load Balancing & Horizontal Scaling`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
@@ -71,7 +71,7 @@
 - [ ] **`Lazy Loading & Pagination`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Compression`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Message Queues`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
-- *...and 73 more concepts documented in `Backend System Design/Backend System Design.md`.*
+- *...and 72 more concepts documented in `Backend System Design/Backend System Design.md`.*
 
 ### AI Foundations & Core (17 Concepts without Questions)
 > Documented in: [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md) ──► Target Question Checklist: [`foundations.md`](./Interview%20Inspire/ai-engineering/foundations/foundations.md)
@@ -144,7 +144,7 @@
 > **Actionable Opportunity**: These interview questions exist in `Interview Inspire/`, but do not yet have dedicated reference table entries in `Technical Skill/`.
 > 👉 *Copy any question below into [`inbox.md`](./inbox.md) and ask the AI agent to draft reference table rows!*
 
-### Frontend Engineering (56 Questions without Notes)
+### Frontend Engineering (57 Questions without Notes)
 > Question source: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md) ──► Destination Note: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)
 
 - [ ] **HTML & Web Fundamentals**: **[Core Concept]** How do you handle responsive image loading in modern web apps?
@@ -152,17 +152,17 @@
 - [ ] **HTML & Web Fundamentals**: **[Core Concept]** What is the difference between `keydown`, `keypress`, and `keyup` events, and what is the exact execution sequence when a key is pressed?
 - [ ] **CSS & Layouts**: **[Core Concept]** What is the difference between `display: none` and `visibility: hidden`?
 - [ ] **CSS & Layouts**: **[Core Concept]** Explain CSS Box Model (content, padding, border, margin) and `box-sizing: border-box`.
-- *...and 51 more questions in `software-engineering/frontend/frontend.md`.*
+- *...and 52 more questions in `software-engineering/frontend/frontend.md`.*
 
-### Backend Engineering (28 Questions without Notes)
+### Backend Engineering (30 Questions without Notes)
 > Question source: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md) ──► Destination Note: [`Backend.md`](./Technical%20Skill/Backend/Backend.md)
 
-- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: What are the key principles of RESTful API design, and what makes an API truly idempotent?
-- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: What is the difference between WebSockets, Server-Sent Events (SSE), and Long Polling? What are the use cases for each?
-- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: What are HTTP status codes 401 vs 403, and 502 vs 504?
-- [ ] **Relational Databases (SQL & PostgreSQL/MySQL)**: What are Database Isolation Levels (Read Uncommitted, Read Committed, Repeatable Read, Serializable) and the anomalies they prevent (Dirty reads, Non-repeatable reads, Phantom reads)?
-- [ ] **Relational Databases (SQL & PostgreSQL/MySQL)**: What is the difference between Clustered and Non-Clustered indexes?
-- *...and 23 more questions in `software-engineering/backend/backend.md`.*
+- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: **[Core Concept]** What are the key principles of RESTful API design, and what makes an API truly idempotent?
+- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: **[Core Concept]** What is the difference between WebSockets, Server-Sent Events (SSE), and Long Polling? What are the use cases for each?
+- [ ] **API Design & Architecture (REST, GraphQL, gRPC)**: **[Core Concept]** What are HTTP status codes 401 vs 403, and 502 vs 504?
+- [ ] **Relational Databases (SQL & PostgreSQL/MySQL)**: **[Technical Deep Dive]** What are Database Isolation Levels (Read Uncommitted, Read Committed, Repeatable Read, Serializable) and the anomalies they prevent (Dirty reads, Non-repeatable reads, Phantom reads)?
+- [ ] **Relational Databases (SQL & PostgreSQL/MySQL)**: **[Core Concept]** What is the difference between Clustered and Non-Clustered indexes?
+- *...and 25 more questions in `software-engineering/backend/backend.md`.*
 
 ### DevOps & Cloud (22 Questions without Notes)
 > Question source: [`devops.md`](./Interview%20Inspire/software-engineering/devops/devops.md) ──► Destination Note: [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)
@@ -174,15 +174,15 @@
 - [ ] **Networking & Web Servers (Nginx, DNS, SSL/TLS, HTTP)**: What happens during a DNS lookup from browser cache to authoritative name server?
 - *...and 17 more questions in `software-engineering/devops/devops.md`.*
 
-### System Design (17 Questions without Notes)
+### System Design (19 Questions without Notes)
 > Question source: [`system-design.md`](./Interview%20Inspire/software-engineering/system-design/system-design.md) ──► Destination Note: [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)
 
-- [ ] **Core System Design Principles & Scalability**: What is the difference between Vertical Scaling (Scaling Up) and Horizontal Scaling (Scaling Out)? What are the limits of each?
-- [ ] **Core System Design Principles & Scalability**: How do you estimate Back-of-the-envelope calculations (QPS, storage, bandwidth, memory requirements) during an interview?
-- [ ] **Load Balancing & Traffic Routing**: What is the difference between Layer 4 (Transport) and Layer 7 (Application) Load Balancing?
-- [ ] **Load Balancing & Traffic Routing**: How does Consistent Hashing work, and how does it prevent massive key remapping when adding or removing cache/database nodes?
-- [ ] **Caching & Content Delivery Networks (CDN)**: How do CDNs cache static vs dynamic content using edge compute (Cloudflare Workers, AWS CloudFront)?
-- *...and 12 more questions in `software-engineering/system-design/system-design.md`.*
+- [ ] **Core System Design Principles & Scalability**: **[Core Concept]** What is the difference between Vertical Scaling (Scaling Up) and Horizontal Scaling (Scaling Out)? What are the limits of each?
+- [ ] **Core System Design Principles & Scalability**: **[Technical Deep Dive]** How do you estimate Back-of-the-envelope calculations (QPS, storage, bandwidth, memory requirements) during an interview?
+- [ ] **Load Balancing & Traffic Routing**: **[Core Concept]** What is the difference between Layer 4 (Transport) and Layer 7 (Application) Load Balancing?
+- [ ] **Load Balancing & Traffic Routing**: **[Technical Deep Dive]** How does Consistent Hashing work, and how does it prevent massive key remapping when adding or removing cache/database nodes?
+- [ ] **Load Balancing & Traffic Routing**: **[Core Concept]** What are the core traffic distribution algorithms in load balancers (Round Robin, Weighted Round Robin, Least Connections, IP Hash), and when should you choose each?
+- *...and 14 more questions in `software-engineering/system-design/system-design.md`.*
 
 ### AI Foundations & Core (29 Questions without Notes)
 > Question source: [`foundations.md`](./Interview%20Inspire/ai-engineering/foundations/foundations.md) ──► Destination Note: [`AI Engineering Concept.md`](./Technical%20Skill/AI Engineering/Core AI/AI Engineering Concept.md)
