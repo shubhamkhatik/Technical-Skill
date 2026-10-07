@@ -85,6 +85,16 @@ Automatically detect the appropriate file and section based on topic keywords (e
   - **Tradeoffs & Failure Modes**: 1–2 high-yield `✅` pros and `❌` critical failure modes/bottlenecks.
 - **Zero Prose Clutter**: **DO NOT** add prose paragraphs, essays, study notes, or conversational explanations above or below the tables. Everything belongs strictly inside the structured table rows.
 
+### 💡 Core Keynote: Plain-Language Intuition & Simple Use Cases (What, Why & When)
+- **Always Use Simple, Plain Words**: Explain technical concepts in simple, human-friendly terms without dense academic jargon, convoluted buzzwords, or pretentious phrasing.
+- **The Core Purpose of the Table Format**:
+  The table format exists so the reader can immediately understand:
+  1. **WHAT the skill is**: A simple, intuitive mental model in plain English.
+  2. **WHY we use it**: The real-world problem it solves and why naive alternatives fail.
+  3. **HOW / WHEN it is used**: Practical, everyday production use cases (e.g., *"Use WebSockets for live sports scores, use SSE for ChatGPT streaming responses, use polling for low-frequency status checks"*).
+- **Concrete & Relatable Scenarios**: Always ground techniques in realistic, easy-to-understand use cases so the concept clicks instantly.
+
+
 ### Context-Adaptive Table Schemas:
 1. **Rule of Existing Context**:
    - If appending to an existing table in any file, **ALWAYS match that table's exact column headers**.

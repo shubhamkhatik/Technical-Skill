@@ -50,6 +50,8 @@ Trigger this skill whenever the user says:
 ### 4. Render Table Preview
 - **Strict Rule: Tables Only, Zero Prose Clutter**: Everything goes strictly into the table row. Zero prose paragraphs outside tables.
 - **Summarized Learning Reference (Not a Detailed Textbook)**: Keep cells crisp, punchy, and readable at a glance (1–2 sentences for mental models, canonical tools only, core practical techniques, 1–2 key tradeoffs `✅`/`❌`). Never output bloated textbook explanations.
+- **💡 Plain-Language Intuition & Simple Use Cases**: Always use simple, intuitive words to explain concepts. The table exists to answer: (1) **WHAT** it is, (2) **WHY** we use it (real-world problem solved), and (3) **WHEN** to use it (relatable, concrete production use cases). Avoid academic jargon or convoluted phrasing.
+
 - **Context-Adaptive Schemas**:
   - **Rule of Existing Context**: If target section already has a table, always match its exact columns.
   - **System Design & Architectural Topics** (API design, protocols, caching, databases, sharding, auth): 6 columns including `Tradeoffs & Failure Modes` (`✅` pros, `❌` pitfalls).
