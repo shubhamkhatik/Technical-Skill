@@ -1,8 +1,8 @@
 # 🎯 Dual-Track Engineering Coverage & Readiness Dashboard
 
 > **Unified Live Synchronization between [`Technical Skill/`](./Technical%20Skill/TECHNICAL%20SKILL.md) and [`Interview Inspire/`](./Interview%20Inspire/README.md)**  
-> - 🎯 **Question Preparation Readiness:** `26.8%` of tracked interview questions (117/437) have corresponding technical concept notes.
-> - 🧠 **Concept Question Coverage:** `12.4%` of documented technical concepts (72/582) have active interview questions in the bank.
+> - 🎯 **Question Preparation Readiness:** `26.5%` of tracked interview questions (119/449) have corresponding technical concept notes.
+> - 🧠 **Concept Question Coverage:** `12.7%` of documented technical concepts (74/582) have active interview questions in the bank.
 
 ---
 
@@ -10,7 +10,7 @@
 
 | Track / Domain              | Questions Total | Questions Covered | Q Score            | Concepts Total | Concepts with Qs | Concept Score | Primary Notes                                                                                                              | Question Bank Link                                                                           |
 | :-------------------------- | :-------------: | :---------------: | :----------------: | :------------: | :--------------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- |
-| **Frontend Engineering**    | 90              | 33                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `36.7%` | 212            | 17               | `8.0%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
+| **Frontend Engineering**    | 102             | 35                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `34.3%` | 212            | 19               | `9.0%`        | [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)                                                                  | [Practice Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md)           |
 | **Backend Engineering**     | 47              | 17                | 🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `36.2%` | 108            | 10               | `9.3%`        | [`Backend.md`](./Technical%20Skill/Backend/Backend.md)                                                                     | [Practice Bank ↗](./Interview%20Inspire/software-engineering/backend/backend.md)             |
 | **DevOps & Cloud**          | 39              | 17                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `43.6%` | 75             | 11               | `14.7%`       | [`DevOps for Developer.md`](./Technical%20Skill/DevOps for Developers/DevOps for Developer.md)                             | [Practice Bank ↗](./Interview%20Inspire/software-engineering/devops/devops.md)               |
 | **System Design**           | 37              | 18                | 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ `48.6%` | 91             | 13               | `14.3%`       | [`Backend System Design.md`](./Technical%20Skill/Backend System Design/Backend System Design.md)                           | [Practice Bank ↗](./Interview%20Inspire/software-engineering/system-design/system-design.md) |
@@ -29,7 +29,7 @@
 > **Actionable Opportunity**: These concepts are documented in your `Technical Skill/` reference tables, but currently have **0 interview questions** in `Interview Inspire/`.
 > 👉 *When reviewing these, use the AI agent's **Top 5 Question Generator** archetype to populate questions for them!*
 
-### Frontend Engineering (195 Concepts without Questions)
+### Frontend Engineering (193 Concepts without Questions)
 > Documented in: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md) ──► Target Question Checklist: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md)
 
 - [ ] **`CSS / SASS`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
@@ -38,7 +38,7 @@
 - [ ] **`Authentication`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`Frontend Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
 - [ ] **`HTTPS & Cookie Security`**: Add interview questions (Mental model, Internals, Tradeoffs, Observability, Debugging)
-- *...and 189 more concepts documented in `Frontend/Frontend.md`.*
+- *...and 187 more concepts documented in `Frontend/Frontend.md`.*
 
 ### Backend Engineering (98 Concepts without Questions)
 > Documented in: [`Backend.md`](./Technical%20Skill/Backend/Backend.md) ──► Target Question Checklist: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md)
@@ -144,15 +144,15 @@
 > **Actionable Opportunity**: These interview questions exist in `Interview Inspire/`, but do not yet have dedicated reference table entries in `Technical Skill/`.
 > 👉 *Copy any question below into [`inbox.md`](./inbox.md) and ask the AI agent to draft reference table rows!*
 
-### Frontend Engineering (57 Questions without Notes)
+### Frontend Engineering (67 Questions without Notes)
 > Question source: [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md) ──► Destination Note: [`Frontend.md`](./Technical%20Skill/Frontend/Frontend.md)
 
-- [ ] **HTML & Web Fundamentals**: **[Core Concept]** How do you handle responsive image loading in modern web apps?
-- [ ] **HTML & Web Fundamentals**: **[Core Concept]** How do you architect an application for multiple devices (responsive design, media queries, relative units, progressive enhancement)?
-- [ ] **HTML & Web Fundamentals**: **[Core Concept]** What is the difference between `keydown`, `keypress`, and `keyup` events, and what is the exact execution sequence when a key is pressed?
-- [ ] **CSS & Layouts**: **[Core Concept]** What is the difference between `display: none` and `visibility: hidden`?
-- [ ] **CSS & Layouts**: **[Core Concept]** Explain CSS Box Model (content, padding, border, margin) and `box-sizing: border-box`.
-- *...and 52 more questions in `software-engineering/frontend/frontend.md`.*
+- [ ] **HTML & Web Fundamentals**: How do you handle responsive image loading in modern web apps?
+- [ ] **HTML & Web Fundamentals**: How do you architect an application for multiple devices (responsive design, media queries, relative units, progressive enhancement)?
+- [ ] **HTML & Web Fundamentals**: What is the difference between `keydown`, `keypress`, and `keyup` events, and what is the exact execution sequence when a key is pressed?
+- [ ] **CSS & Layouts**: What is the difference between `display: none` and `visibility: hidden`?
+- [ ] **CSS & Layouts**: Explain CSS Box Model (content, padding, border, margin) and `box-sizing: border-box`.
+- *...and 62 more questions in `software-engineering/frontend/frontend.md`.*
 
 ### Backend Engineering (30 Questions without Notes)
 > Question source: [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md) ──► Destination Note: [`Backend.md`](./Technical%20Skill/Backend/Backend.md)
@@ -260,21 +260,21 @@
 
 | Domain                   | Question from Interview Inspire                                                | Matched Concept in Technical Skill | Practice Link                                                                     |
 | :----------------------- | :----------------------------------------------------------------------------- | :--------------------------------- | :-------------------------------------------------------------------------------- |
-| **Frontend Engineering** | **[Core Concept]** What are Semantic HTML elements and why should you use t... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What is `srcset` in HTML and how does it compare to the ... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What are Web Components (Custom Elements, Shadow DOM, HT... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What are Service Workers, Web Workers, and Progressive W... | `Progressive Web Apps`             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Technical Deep Dive]** What does the `new` operator do in JavaScript int... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What is the difference between `Map` and `Object` in Jav... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What is the difference between Prototypal and Classical ... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** How does JavaScript handle asynchronous operations? What... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** How do we apply Object-Oriented Programming (OOP) and SO... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Technical Deep Dive]** What does `typeof` return on rest parameters `(..... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** Difference between `any`, `unknown` and `never` in TypeS... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** Explain enum/String enum in TypeScript?                     | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What is casting in TypeScript?                              | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Core Concept]** What is public, private and protected in TypeScript clas... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
-| **Frontend Engineering** | **[Technical Deep Dive]** What are Generics in TypeScript? Give examples in... | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What are Semantic HTML elements and why should you use them over non-semant... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is `srcset` in HTML and how does it compare to the `<picture>` element... | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What are Web Components (Custom Elements, Shadow DOM, HTML Templates)?         | `HTML`                             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What are Service Workers, Web Workers, and Progressive Web Apps (PWAs)?        | `Progressive Web Apps`             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What does the `new` operator do in JavaScript internally step-by-step?         | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is the difference between `Map` and `Object` in JavaScript? When shoul... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is the difference between Prototypal and Classical Inheritance in Java... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | How does JavaScript handle asynchronous operations? What mechanisms does it... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | How do we apply Object-Oriented Programming (OOP) and SOLID principles in J... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What does `typeof` return on rest parameters `(...args)` in JavaScript func... | `JavaScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is the output of `[1, null, 5, 2, undefined].sort()` and why does `und... | `Unit Testing (Logic)`             | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | Difference between `any`, `unknown` and `never` in TypeScript?                 | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | Explain enum/String enum in TypeScript?                                        | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is casting in TypeScript?                                                 | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
+| **Frontend Engineering** | What is public, private and protected in TypeScript classes?                   | `TypeScript`                       | [View in Bank ↗](./Interview%20Inspire/software-engineering/frontend/frontend.md) |
 
 ---
 

@@ -66,7 +66,7 @@ Questions are organized by high-level engineering domain into the target files b
 | **MLOps & LLMOps**   | `ai-engineering/mlops-llmops/mlops-llmops.md`         | Model Serving (vLLM/Triton), Quantization, Fine-Tuning (LoRA/DPO), Evals, Guardrails, Observability |
 | **AI System Design** | `ai-engineering/ai-system-design/ai-system-design.md` | Token Economics, Semantic Caching (GPTCache), LLM Routing, Enterprise RAG at Scale, Multimodal      |
 | **DSA**              | `dsa-problem-solving/dsa.md`                          | Strings, Arrays, Two Pointers/Sliding Window, Lists, Trees, DP, Math, Sorting, Graph Algorithms     |
-| **Experiences**      | `interview-experiences/`                              | Real-world round logs, machine coding solutions, and company notes                                  |
+| **Behavioral**       | `software-engineering/behavioral/behavioral.md`       | Leadership, ownership, deadlines, mentorship, conflict resolution, technical trade-offs             |
 
 ---
 
