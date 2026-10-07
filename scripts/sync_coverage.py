@@ -98,8 +98,8 @@ TRACK_MAPPING = {
 }
 
 
-GITHUB_RAW_BASE = "https://raw.githubusercontent.com/shubhamkhatik/Interview-Inspire/main"
-GITHUB_REPO_BASE = "https://github.com/shubhamkhatik/Interview-Inspire/blob/main"
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/shubhamkhatik/tech-skills-and-interview-guide/main/Interview%20Inspire"
+GITHUB_REPO_BASE = "https://github.com/shubhamkhatik/tech-skills-and-interview-guide/blob/main/Interview%20Inspire"
 
 def resolve_tech_skill_path(repo_root: str, rel_path: str) -> str:
     """Resolves path whether inside Technical Skill/ subfolder or at root."""

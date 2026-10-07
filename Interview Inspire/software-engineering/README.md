@@ -8,3 +8,5 @@ Comprehensive question banks for Full-Stack and Software Engineering roles.
 - ⚙️ **[Backend Engineering](backend/backend.md)** — API Design, Relational DBs (SQL), NoSQL, Caching & Redis, Message Queues (Kafka), Auth & Concurrency
 - 🚀 **[DevOps & Cloud](devops/devops.md)** — Linux & Shell, Networking & Nginx, Docker, Kubernetes, CI/CD, Terraform, Observability & SRE
 - 📐 **[System Design](system-design/system-design.md)** — Scalability principles, Sharding, Consistent Hashing, Classic HLD Problems & LLD Design Patterns
+- 🤝 **[Behavioral & Leadership](behavioral/behavioral.md)** — Ownership, Deadlines, Production Incidents, Mentorship & Technical Standards
+
