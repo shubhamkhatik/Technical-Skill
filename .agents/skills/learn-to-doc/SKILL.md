@@ -64,9 +64,8 @@ Trigger this skill whenever the user says:
 - Upon user confirmation, append rows into the target table before section breaks (`---` or next `##`).
 - If the content was processed from `inbox.md`, clear the processed technical notes from `inbox.md`.
 
-### 6. Format & Coverage Sync
+### 6. Format Table
 - Run `python scripts/prettify_tables.py <target_file>` to ensure vertical column pipe alignment.
-- Run `python scripts/sync_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](../../../INTERVIEW_COVERAGE.md).
 
 ### 7. 🔄 2-Way Cross-Linking Bridge (Interview Inspire)
 - For every documented or enriched concept (e.g. *WebSockets*, *Redis*, *RAG*):

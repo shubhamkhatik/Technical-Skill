@@ -46,24 +46,13 @@ Instead of rejecting topics with *"already exists"*, the system treats your docu
   ```
 - Merges new tools, techniques, and failure modes **in-place** without creating duplicate rows.
 
-### 3. 🎯 Live Dual-Track Sync (`INTERVIEW_COVERAGE.md`)
-Cross-references technical reference tables in `Technical Skill/` in real time against `Interview Inspire/`:
-- Tracks your **Overall Preparation Readiness** (e.g. `%` of tracked interview questions that have corresponding concept notes).
-- Tracks your **Concept Question Coverage** (`%` of documented concepts with active interview questions).
-- Highlights **Track A Gaps** (concepts documented in notes that need interview questions).
-- Highlights **Track B Gaps** (interview questions in checklists that need dedicated reference table rows).
-- Refresh anytime with:
-  ```bash
-  python scripts/sync_coverage.py
-  ```
-
-### 4. 📐 Zero-Dependency Table Prettifier (`scripts/prettify_tables.py`)
+### 3. 📐 Zero-Dependency Table Prettifier (`scripts/prettify_tables.py`)
 No matter how messy table pipes get during editing, running the prettifier vertically aligns all table columns across every file:
 ```bash
 python scripts/prettify_tables.py --all
 ```
 
-### 5. 🤖 Automated AI Pair-Programming (`AGENTS.md`)
+### 4. 🤖 Automated AI Pair-Programming (`AGENTS.md`)
 All repository rules, schema formats, deduplication logic, and automation protocols are codified in [`AGENTS.md`](./AGENTS.md) and `.agents/skills/`. Every AI agent automatically adheres to these rules—you don't have to remember manual commands.
 
 ---
@@ -80,18 +69,16 @@ All repository rules, schema formats, deduplication logic, and automation protoc
 2. The system auto-sorts, deduplicates, and places them in the right domain checklist in `Interview Inspire/`.
 
 ### Scenario C: You Want to Prepare Before an Interview
-1. Open [`INTERVIEW_COVERAGE.md`](./INTERVIEW_COVERAGE.md) to inspect your readiness score.
-2. Open the domain checklist (e.g. [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md) or [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md)) to rapidly test your recall against high-yield questions and output snippets.
+1. Open the domain checklist (e.g. [`frontend.md`](./Interview%20Inspire/software-engineering/frontend/frontend.md) or [`backend.md`](./Interview%20Inspire/software-engineering/backend/backend.md)) to rapidly test your recall against high-yield questions and output snippets.
 
 ---
 
 ## 🛠️ Repository Scripts
 
-| Script                 | Purpose                                                            | Command                                   |
-| :--------------------- | :----------------------------------------------------------------- | :---------------------------------------- |
-| **Table Prettifier**   | Aligns all vertical `\|` pipes across markdown tables              | `python scripts/prettify_tables.py --all` |
-| **Bidirectional Sync** | Synchronizes Dual-Track Coverage & updates `INTERVIEW_COVERAGE.md` | `python scripts/sync_coverage.py`         |
-| **Interview Sorter**   | Classifies, deduplicates & formats raw question dumps              | `python scripts/process_questions.py`     |
+| Script               | Purpose                                               | Command                                   |
+| :------------------- | :---------------------------------------------------- | :---------------------------------------- |
+| **Table Prettifier** | Aligns all vertical `\|` pipes across markdown tables | `python scripts/prettify_tables.py --all` |
+| **Interview Sorter** | Classifies, deduplicates & formats raw question dumps | `python scripts/process_questions.py`     |
 
 ---
 

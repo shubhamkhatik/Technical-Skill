@@ -57,11 +57,7 @@ Trigger this skill whenever the user says:
 - Append the curated questions under the target section in the file.
 - If processed from `inbox.md`, clear the processed questions from `inbox.md`.
 
-### 5. Coverage Refresh
-- Run `python scripts/sync_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](../../../INTERVIEW_COVERAGE.md).
-
-
-### 6. 🔄 2-Way Cross-Linking Bridge (Technical Skill)
+### 5. 🔄 2-Way Cross-Linking Bridge (Technical Skill)
 - Check whether the core concept underlying the new questions exists in `Technical Skill/`.
 - If the concept is missing from `Technical Skill/`:
   - Alert the user: *"Concept X is not yet documented in Technical Skill/."*

@@ -48,8 +48,7 @@ When commanded to **"Process inbox"** (or when reading this file), parse all tex
 
 ### 4. 🛠️ Post-Processing Automation
 1. Run `python scripts/prettify_tables.py --all` to vertically align all modified tables.
-2. Run `python scripts/sync_coverage.py` to refresh [`INTERVIEW_COVERAGE.md`](./INTERVIEW_COVERAGE.md).
-3. Reset all content below the separator line back to blank.
+2. Reset all content below the separator line back to blank.
 
 ---
 

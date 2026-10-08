@@ -96,7 +96,4 @@ Always run these commands after making changes:
 ```bash
 # 1. Format and vertically align all markdown tables across the repository
 python scripts/prettify_tables.py --all
-
-# 2. Synchronize dual-track coverage and refresh INTERVIEW_COVERAGE.md
-python scripts/sync_coverage.py
 ```

@@ -116,4 +116,3 @@ Automatically detect the appropriate file and section based on topic keywords (e
 - Upon user approval, append or update the table cleanly.
 - If input was read from `inbox.md`, reset `inbox.md` to its clean template.
 - Run `python scripts/prettify_tables.py <file>` to ensure column alignment.
-- Run `python scripts/sync_coverage.py` to refresh the coverage matrix.
