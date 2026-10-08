@@ -413,16 +413,6 @@ INSTRUCTIONS:
 
     print(f"\nFinished! Added {added_count} new questions successfully.")
 
-    # Auto-refresh bidirectional coverage
-    repo_root = os.path.abspath(os.path.join(base_path, ".."))
-    sync_script = os.path.join(repo_root, "scripts", "sync_coverage.py")
-    if os.path.exists(sync_script):
-        try:
-            import subprocess
-            subprocess.run([sys.executable, sync_script], check=True)
-        except Exception as e:
-            print(f"Notice: Could not auto-refresh coverage: {e}")
-
 if __name__ == "__main__":
     main()
 

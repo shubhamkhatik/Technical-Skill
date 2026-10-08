@@ -1,7 +1,7 @@
 # ⚡ Tech Skills & Interview Guide — Dual-Track Engineering Ecosystem
 
 > **A curated, production-grade engineering reference library and automated question ingestion system.**  
-> Built for zero prose clutter, strict markdown table schemas, evergreen concept enrichment, and seamless interview readiness tracking across Software Engineering, AI Engineering, and DSA.
+> Built for zero prose clutter, strict markdown table schemas, evergreen concept enrichment, and high-yield interview preparation across Software Engineering, AI Engineering, and DSA.
 
 ---
 
