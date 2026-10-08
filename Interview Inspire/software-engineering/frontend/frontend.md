@@ -44,6 +44,10 @@
 17. How does implicit type coercion work in expressions like `1 + +"2" + 3`, and how does the unary plus operator evaluate strings?
 18. What does `typeof` return on rest parameters `(...args)` in JavaScript functions and why?
 19. What are the 4 standard WebSocket lifecycle events (`open`, `message`, `error`, `close`), and how do you implement heartbeat pings and exponential backoff reconnection?
+20. *[Core Concept]** What is the difference between `var`, `let`, and `const` in terms of scope, hoisting, and re-assignment?
+21. *[Core Concept]** What is the difference between loose equality (`==`) and strict equality (`===`) in JavaScript, and how does implicit type coercion work?
+22. *[Core Concept]** What is callback hell, and how do `Promises` and `async`/`await` resolve it?
+23. *[Core Concept]** What is the difference between synchronous and asynchronous execution in JavaScript, and how does the runtime handle them?
 
 ---
 
@@ -97,6 +101,7 @@
     const fn = user.sayName;
     fn();
     ```
+11. *[Technical Deep Dive]** How does variable shadowing interact with hoisting and the Temporal Dead Zone (`TDZ`) in nested scopes?
 
 ---
 
