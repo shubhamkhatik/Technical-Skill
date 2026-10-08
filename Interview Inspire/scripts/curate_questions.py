@@ -99,12 +99,12 @@ def get_gemini_api_key():
         print("ERROR: GEMINI_API_KEY environment variable is not set.", file=sys.stderr)
         print("Please set your Gemini API key (Get a free one at https://aistudio.google.com/)", file=sys.stderr)
         sys.exit(1)
-    return key
+    return key.strip().strip('"').strip("'")
 
 def call_gemini(prompt: str, api_key: str) -> str:
-    """Calls Gemini API using standard library urllib."""
-    # Primary: gemini-2.0-flash (free tier on Google AI Studio)
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+    """Calls Gemini API with modern model fallback (2.5-flash, 2.0-flash, 1.5-flash) and rich diagnostics."""
+    api_key = api_key.strip()
+    models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
     payload = {
         "contents": [
             {
@@ -116,35 +116,42 @@ def call_gemini(prompt: str, api_key: str) -> str:
             "temperature": 0.2
         }
     }
-    
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
-    )
-    
-    try:
-        with urllib.request.urlopen(req) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            candidate = data["candidates"][0]["content"]["parts"][0]["text"]
-            return candidate
-    except urllib.error.HTTPError as e:
-        # Fallback to gemini-1.5-flash if 2.0 is unavailable or throttled
-        err_msg = e.read().decode("utf-8")
-        print(f"Gemini 2.0-flash returned HTTP {e.code}, attempting gemini-1.5-flash fallback...", file=sys.stderr)
-        url_fb = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
-        req_fb = urllib.request.Request(
-            url_fb,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"}
+    encoded_payload = json.dumps(payload).encode("utf-8")
+
+    last_error_details = []
+    for model in models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=encoded_payload,
+            headers={
+                "Content-Type": "application/json",
+                "x-goog-api-key": api_key
+            }
         )
         try:
-            with urllib.request.urlopen(req_fb) as resp_fb:
-                data_fb = json.loads(resp_fb.read().decode("utf-8"))
-                return data_fb["candidates"][0]["content"]["parts"][0]["text"]
-        except Exception as e_fb:
-            print(f"Error calling Gemini API: {e_fb}\nDetails: {err_msg}", file=sys.stderr)
-            sys.exit(1)
+            with urllib.request.urlopen(req) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                candidate = data["candidates"][0]["content"]["parts"][0]["text"]
+                return candidate
+        except urllib.error.HTTPError as e:
+            err_body = ""
+            try:
+                err_body = e.read().decode("utf-8")
+            except Exception:
+                pass
+            msg = f"Model '{model}' failed (HTTP {e.code}): {err_body}"
+            print(f"Warning: {msg}", file=sys.stderr)
+            last_error_details.append(msg)
+        except Exception as e:
+            msg = f"Model '{model}' request error: {e}"
+            print(f"Warning: {msg}", file=sys.stderr)
+            last_error_details.append(msg)
+
+    print("ERROR: All Gemini models failed to generate content.", file=sys.stderr)
+    for err in last_error_details:
+        print(f" - {err}", file=sys.stderr)
+    sys.exit(1)
 
 
 def extract_headings_and_content(base_path: str):
