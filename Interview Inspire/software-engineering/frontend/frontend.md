@@ -143,6 +143,19 @@
 14. How do you pass a custom comparison function `(prevProps, nextProps)` to `React.memo` to restrict re-renders strictly to specific prop changes?
 15. How do you architect code-splitting for conditional heavy libraries (e.g. image vs audio uploaders) using dynamic `import()` and `React.lazy()`?
 16. How do you organize multiple React context providers (`ThemeContext`, `UserContext`, `SettingsContext`) without creating "wrapper hell"?
+17. *[Core Concept]** How do you handle forms and manage form state efficiently in React?
+18. *[Core Concept]** How do you integrate APIs and manage loading and error states in React components?
+19. *[Core Concept]** Why is `fetch` commonly used inside `useEffect` and what are the best practices around it?
+20. *[Core Concept]** Explain React Hooks including `useState`, `useEffect`, `useMemo`, and `useCallback`.
+21. *[Core Concept]** What is the difference between Context API and Redux for state management?
+22. *[Core Concept]** What is props drilling, and how do you solve it in React applications?
+23. *[Core Concept]** Explain state management approaches in React ranging from local state to global stores.
+24. *[Core Concept]** Explain React Router, relative versus absolute paths, and standard navigation use cases.
+25. *[Technical Deep Dive]** What is the Virtual DOM, and how does reconciliation work internally in React?
+26. *[Technical Deep Dive]** Why are keys important in lists, and what bugs or performance issues occur without them?
+27. *[Core Concept]** Explain the React component lifecycle and how hooks map to lifecycle methods.
+28. *[Technical Deep Dive]** How do you prevent unnecessary re-renders in React applications?
+29. *[Technical Deep Dive]** How do you handle API errors and retry strategies efficiently in a React application?
 
 ---
 
@@ -160,6 +173,7 @@
 11. What is the Webpack build process (Entry, Dependency Graph, Loaders, Plugins, Output)?
 12. What is the use of headers in HTTP requests (`Content-Type`, `Authorization`, `Cache-Control`, `User-Agent`)?
 13. What is the difference between quantitative methods (surveys, heatmaps, analytics metrics) versus qualitative methods (usability testing, user interviews) when gathering user feedback in UI performance and usability evaluations?
+14. *[System Design]** If a React home page takes 5 seconds to load, how would you analyze and reduce its load time?
 
 ---
 
