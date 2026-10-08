@@ -102,9 +102,15 @@ def get_gemini_api_key():
     return key.strip().strip('"').strip("'")
 
 def call_gemini(prompt: str, api_key: str) -> str:
-    """Calls Gemini API with modern model fallback (2.5-flash, 2.0-flash, 1.5-flash) and rich diagnostics."""
+    """Calls Gemini API with 2026 models (gemini-3.8-flash, 3.5-flash, etc.) and auto-discovery."""
     api_key = api_key.strip()
-    models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+    preferred_models = [
+        "gemini-3.8-flash",
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite",
+        "gemini-2.5-flash"
+    ]
+
     payload = {
         "contents": [
             {
@@ -119,8 +125,11 @@ def call_gemini(prompt: str, api_key: str) -> str:
     encoded_payload = json.dumps(payload).encode("utf-8")
 
     last_error_details = []
-    for model in models:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
+
+    def try_model(model_name: str):
+        # Strip any "models/" prefix if present
+        clean_model = model_name.replace("models/", "")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{clean_model}:generateContent?key={api_key}"
         req = urllib.request.Request(
             url,
             data=encoded_payload,
@@ -132,21 +141,49 @@ def call_gemini(prompt: str, api_key: str) -> str:
         try:
             with urllib.request.urlopen(req) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-                candidate = data["candidates"][0]["content"]["parts"][0]["text"]
-                return candidate
+                return data["candidates"][0]["content"]["parts"][0]["text"]
         except urllib.error.HTTPError as e:
             err_body = ""
             try:
                 err_body = e.read().decode("utf-8")
             except Exception:
                 pass
-            msg = f"Model '{model}' failed (HTTP {e.code}): {err_body}"
+            msg = f"Model '{clean_model}' failed (HTTP {e.code}): {err_body}"
             print(f"Warning: {msg}", file=sys.stderr)
             last_error_details.append(msg)
+            return None
         except Exception as e:
-            msg = f"Model '{model}' request error: {e}"
+            msg = f"Model '{clean_model}' request error: {e}"
             print(f"Warning: {msg}", file=sys.stderr)
             last_error_details.append(msg)
+            return None
+
+    # 1. Try preferred models in sequence
+    for model in preferred_models:
+        result = try_model(model)
+        if result:
+            return result
+
+    # 2. Dynamic Discovery Fallback: Fetch available models for this API key
+    try:
+        print("Attempting dynamic model discovery via API...", file=sys.stderr)
+        list_url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        list_req = urllib.request.Request(list_url, headers={"x-goog-api-key": api_key})
+        with urllib.request.urlopen(list_req) as resp:
+            models_data = json.loads(resp.read().decode("utf-8"))
+            discovered = [
+                m["name"] for m in models_data.get("models", [])
+                if "generateContent" in m.get("supportedGenerationMethods", [])
+                and "flash" in m.get("name", "").lower()
+            ]
+            for disc_model in discovered:
+                if disc_model.replace("models/", "") not in preferred_models:
+                    print(f"Trying discovered model: {disc_model}...", file=sys.stderr)
+                    result = try_model(disc_model)
+                    if result:
+                        return result
+    except Exception as e:
+        last_error_details.append(f"Model discovery error: {e}")
 
     print("ERROR: All Gemini models failed to generate content.", file=sys.stderr)
     for err in last_error_details:
