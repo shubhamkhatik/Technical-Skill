@@ -260,9 +260,9 @@ def append_question_to_file(file_path: str, heading: str, subheading: str, quest
         content = f.read()
 
     # Defense-in-depth: Clean numbers/bullet prefixes while preserving **[Round]**
-    clean_q = re.sub(r"^\s*(\d+[\.\)]|Q\d+[:\.]?|[-*•])\s*", "", question.strip())
-
     clean_q = re.sub(r"(\*\*|\*)*$", "", clean_q).strip()
+    # Normalize round prefixes to ensure balanced **[Round]**
+    clean_q = re.sub(r"^\*+\[(.*?)\]\*+", r"**[\1]**", clean_q)
 
     # Reject empty or malicious command strings
     if len(clean_q) < 5 or any(danger in clean_q.lower() for danger in ["rm -rf", "delete file", "drop database", "wipe repo"]):
