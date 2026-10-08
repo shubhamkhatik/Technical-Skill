@@ -94,3 +94,20 @@ When the user asks to **"process interview inbox"**, **"process inbox interview"
 ### Step 4: Reset `inbox.md`
 - Clear questions processed from `inbox.md` so the dropzone remains ready for the next dump.
 
+---
+
+## 4. Top 5 High-Yield Question Generator & 2-Way Bridge
+
+When the user asks to generate questions for a topic, or when a topic in `Technical Skill/` lacks interview questions, automatically create or curate **Top 5 High-Yield Questions** spanning these 5 levels:
+
+1. 🧠 **[Core Concept]**: Mental model & fundamental mechanics.
+2. ⚙️ **[Technical Deep Dive] / [Machine Coding]**: Low-level protocol, handshake, API internals, or implementation traps.
+3. ⚖️ **[System Design] / Tradeoffs**: Edge cases, bottleneck limitations, failure modes, scale constraints.
+4. 📊 **[Technical Deep Dive] / Observability**: P99 latency, metrics, logs, tracing, heartbeats, and monitoring.
+5. 🚨 **[Technical Deep Dive] / Production Debugging**: Incident triage, memory/socket leaks, thundering herd, cascading failures.
+
+### 🔄 2-Way Bridge (To Technical Skill):
+- Whenever new questions are added to `Interview Inspire/`:
+  - Check if the corresponding concept exists in `Technical Skill/`.
+  - If absent, offer to draft a standardized reference table row for it in `Technical Skill/`.
+

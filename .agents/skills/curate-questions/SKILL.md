@@ -14,6 +14,9 @@ Trigger this skill whenever the user says:
 - "Add interview questions for X..."
 - "Sort interview questions"
 - "Curate these questions..."
+- "Generate top 5 questions for [Topic]"
+- "Fill interview question gaps for [Topic]"
+- "What interview questions are missing for [Topic]?"
 
 ## Execution Steps
 
@@ -47,6 +50,13 @@ Trigger this skill whenever the user says:
     - `**[Machine Coding]**`
     - `**[System Design]**`
     - `**[Behavioral / HM]**`
+- **Top 5 Question Generator (When generating or filling gaps for a topic)**:
+  - If a topic has no questions or the user asks for top questions on a topic, generate **Top 5 High-Yield Questions** across:
+    1. 🧠 **[Core Concept]**: Mental model & fundamental mechanics.
+    2. ⚙️ **[Technical Deep Dive] / [Machine Coding]**: Low-level protocol, handshake, runtime internals, or implementation traps.
+    3. ⚖️ **[System Design]**: Scale constraints, edge cases, failure modes, bottlenecks.
+    4. 📊 **[Technical Deep Dive] / Observability**: P99 latency, metrics, logs, tracing, heartbeats.
+    5. 🚨 **[Technical Deep Dive] / Production Debugging**: Incident triage, socket/memory leaks, thundering herd.
 - **Strict Rule: Questions Only**:
   - **Zero Answers**: No solutions, essays, explanations, or code blocks in question checklists.
   - **Keyword Formatting**: Wrap code keywords, APIs, and types in backticks (e.g., `useMemo`, `Promise.all()`, `pgvector`, `cgroups`).
